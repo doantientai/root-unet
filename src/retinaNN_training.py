@@ -151,7 +151,7 @@ patches_imgs_train, patches_masks_train = get_data_training(
     patch_height = int(config.get('data attributes', 'patch_height')),
     patch_width = int(config.get('data attributes', 'patch_width')),
     N_subimgs = int(config.get('training settings', 'N_subimgs')),
-    inside_FOV = config.getboolean('training settings', 'inside_FOV') #select the patches only inside the FOV  (default == True)
+    False #select the patches only inside the FOV  (default == True)
 )
 
 

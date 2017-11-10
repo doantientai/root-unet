@@ -40,7 +40,7 @@ def get_data_training(DRIVE_train_imgs_original,
     print "train masks are within 0-1\n"
 
     #extract the TRAINING patches from the full images
-    patches_imgs_train, patches_masks_train = extract_random(train_imgs,train_masks,patch_height,patch_width,N_subimgs,inside_FOV)
+    patches_imgs_train, patches_masks_train = extract_random(train_imgs,train_masks,patch_height,patch_width,N_subimgs,False)
     data_consistency_check(patches_imgs_train, patches_masks_train)
 
     print "\ntrain PATCHES images/masks shape:"

@@ -19,7 +19,7 @@ nohup = config.getboolean('training settings', 'nohup')   #std output on log fil
 run_GPU = '' if sys.platform == 'win32' else ' THEANO_FLAGS=device=gpu,floatX=float32 '
 
 #create a folder for the results
-result_dir = name_experiment
+result_dir = "Experimemts/" + name_experiment
 print "\n1. Create directory for the results (if not already existing)"
 if os.path.exists(result_dir):
     print "Dir already existing"
