@@ -27,8 +27,8 @@ def get_data_training(DRIVE_train_imgs_original,
     train_imgs = my_PreProc(train_imgs_original)
     train_masks = train_masks/255.
 
-    train_imgs = train_imgs[:,:,9:574,:]  #cut bottom and top so now it is 565*565
-    train_masks = train_masks[:,:,9:574,:]  #cut bottom and top so now it is 565*565
+    train_imgs = train_imgs[:,:,332:332+1661,:]  #cut bottom and top so now it is 565*565
+    train_masks = train_masks[:,:,332:332+1661,:]  #cut bottom and top so now it is 565*565
     data_consistency_check(train_imgs,train_masks)
 
     #check masks are within 0-1
@@ -137,6 +137,8 @@ def data_consistency_check(imgs,masks):
 #  -- Inside OR in full image
 def extract_random(full_imgs,full_masks, patch_h,patch_w, N_patches, inside=True):
     if (N_patches%full_imgs.shape[0] != 0):
+        print ("N_patches: ", N_patches)
+        print ("full_imgs.shape" , full_imgs.shape[0])
         print "N_patches: plase enter a multiple of 20"
         exit()
     assert (len(full_imgs.shape)==4 and len(full_masks.shape)==4)  #4D arrays
@@ -361,6 +363,25 @@ def pred_only_FOV(data_imgs,data_masks,original_imgs_border_masks):
     new_pred_imgs = np.asarray(new_pred_imgs)
     new_pred_masks = np.asarray(new_pred_masks)
     return new_pred_imgs, new_pred_masks
+
+def pred_not_only_FOV(data_imgs,data_masks):
+    assert (len(data_imgs.shape)==4 and len(data_masks.shape)==4)  #4D arrays
+    assert (data_imgs.shape[0]==data_masks.shape[0])
+    assert (data_imgs.shape[2]==data_masks.shape[2])
+    assert (data_imgs.shape[3]==data_masks.shape[3])
+    assert (data_imgs.shape[1]==1 and data_masks.shape[1]==1)  #check the channel is 1
+    height = data_imgs.shape[2]
+    width = data_imgs.shape[3]
+    new_pred_imgs = []
+    new_pred_masks = []
+    for i in range(data_imgs.shape[0]):  #loop over the full images
+        for x in range(width):
+            for y in range(height):
+                new_pred_imgs.append(data_imgs[i,:,y,x])
+                new_pred_masks.append(data_masks[i,:,y,x])
+    new_pred_imgs = np.asarray(new_pred_imgs)
+    new_pred_masks = np.asarray(new_pred_masks)
+    return new_pred_imgs, new_pred_masks.astype(int)
 
 #function to set to black everything outside the FOV, in a full image
 def kill_border(data, original_imgs_border_masks):

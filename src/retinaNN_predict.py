@@ -9,6 +9,8 @@
 #Python
 import numpy as np
 import ConfigParser
+import matplotlib
+matplotlib.use('agg')
 from matplotlib import pyplot as plt
 #Keras
 from keras.models import model_from_json
@@ -29,7 +31,7 @@ from extract_patches import recompone
 from extract_patches import recompone_overlap
 from extract_patches import paint_border
 from extract_patches import kill_border
-from extract_patches import pred_only_FOV
+from extract_patches import pred_not_only_FOV
 from extract_patches import get_data_testing
 from extract_patches import get_data_testing_overlap
 # pre_processing.py
@@ -43,14 +45,16 @@ config.read('configuration.txt')
 #run the training on invariant or local
 path_data = config.get('data paths', 'path_local')
 
+
+
 #original test images (for FOV selection)
 DRIVE_test_imgs_original = path_data + config.get('data paths', 'test_imgs_original')
 test_imgs_orig = load_hdf5(DRIVE_test_imgs_original)
 full_img_height = test_imgs_orig.shape[2]
 full_img_width = test_imgs_orig.shape[3]
 #the border masks provided by the DRIVE
-DRIVE_test_border_masks = path_data + config.get('data paths', 'test_border_masks')
-test_border_masks = load_hdf5(DRIVE_test_border_masks)
+#DRIVE_test_border_masks = path_data + config.get('data paths', 'test_border_masks')
+#test_border_masks = load_hdf5(DRIVE_test_border_masks)
 # dimension of the patches
 patch_height = int(config.get('data attributes', 'patch_height'))
 patch_width = int(config.get('data attributes', 'patch_width'))
@@ -60,7 +64,7 @@ stride_width = int(config.get('testing settings', 'stride_width'))
 assert (stride_height < patch_height and stride_width < patch_width)
 #model name
 name_experiment = config.get('experiment name', 'name')
-path_experiment = './' +name_experiment +'/'
+path_experiment = './' +"Experiments/" + name_experiment +'/'
 #N full images to be predicted
 Imgs_to_test = int(config.get('testing settings', 'full_images_to_test'))
 #Grouping of the predicted images
@@ -108,7 +112,7 @@ else:
 #================ Run the prediction of the patches ==================================
 best_last = config.get('testing settings', 'best_last')
 #Load the saved model
-model = model_from_json(open(path_experiment+name_experiment +'_architecture.json').read())
+model = model_from_json(open(path_experiment + name_experiment +'_architecture.json').read())
 model.load_weights(path_experiment+name_experiment + '_'+best_last+'_weights.h5')
 #Calculate the predictions
 predictions = model.predict(patches_imgs_test, batch_size=32, verbose=2)
@@ -133,7 +137,7 @@ else:
     orig_imgs = recompone(patches_imgs_test,13,12)  # originals
     gtruth_masks = recompone(patches_masks_test,13,12)  #masks
 # apply the DRIVE masks on the repdictions #set everything outside the FOV to zero!!
-kill_border(pred_imgs, test_border_masks)  #DRIVE MASK  #only for visualization
+#kill_border(pred_imgs, test_border_masks)  #DRIVE MASK  #only for visualization
 ## back to original dimensions
 orig_imgs = orig_imgs[:,:,0:full_img_height,0:full_img_width]
 pred_imgs = pred_imgs[:,:,0:full_img_height,0:full_img_width]
@@ -160,10 +164,12 @@ for i in range(int(N_predicted/group)):
 #====== Evaluate the results
 print "\n\n========  Evaluate the results ======================="
 #predictions only inside the FOV
-y_scores, y_true = pred_only_FOV(pred_imgs,gtruth_masks, test_border_masks)  #returns data only inside the FOV
-print "Calculating results only inside the FOV:"
-print "y scores pixels: " +str(y_scores.shape[0]) +" (radius 270: 270*270*3.14==228906), including background around retina: " +str(pred_imgs.shape[0]*pred_imgs.shape[2]*pred_imgs.shape[3]) +" (584*565==329960)"
-print "y true pixels: " +str(y_true.shape[0]) +" (radius 270: 270*270*3.14==228906), including background around retina: " +str(gtruth_masks.shape[2]*gtruth_masks.shape[3]*gtruth_masks.shape[0])+" (584*565==329960)"
+y_scores, y_true = pred_not_only_FOV(pred_imgs,gtruth_masks)  #returns data only inside the FOV
+#print(y_scores)
+#print(y_true)
+print "Calculating results not only inside the FOV:"
+#print "y scores pixels: " +str(y_scores.shape[0]) +" (radius 270: 270*270*3.14==228906), including background around retina: " +str(pred_imgs.shape[0]*pred_imgs.shape[2]*pred_imgs.shape[3]) +" (584*565==329960)"
+#print "y true pixels: " +str(y_true.shape[0]) +" (radius 270: 270*270*3.14==228906), including background around retina: " +str(gtruth_masks.shape[2]*gtruth_masks.shape[3]*gtruth_masks.shape[0])+" (584*565==329960)"
 
 #Area under the ROC curve
 fpr, tpr, thresholds = roc_curve((y_true), y_scores)

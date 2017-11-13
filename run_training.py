@@ -6,7 +6,7 @@
 
 import os, sys
 import ConfigParser
-
+import smtplib
 
 #config file to read from
 config = ConfigParser.RawConfigParser()
@@ -19,27 +19,38 @@ nohup = config.getboolean('training settings', 'nohup')   #std output on log fil
 run_GPU = '' if sys.platform == 'win32' else ' THEANO_FLAGS=device=gpu,floatX=float32 '
 
 #create a folder for the results
-result_dir = "Experimemts/" + name_experiment
-print "\n1. Create directory for the results (if not already existing)"
+result_dir = "Experiments/" + name_experiment
+print ("\n1. Create directory for the results (if not already existing)")
 if os.path.exists(result_dir):
-    print "Dir already existing"
+    print( "Dir already existing")
 elif sys.platform=='win32':
     os.system('mkdir ' + result_dir)
 else:
     os.system('mkdir -p ' +result_dir)
 
-print "copy the configuration file in the results folder"
+print ("copy the configuration file in the results folder")
 if sys.platform=='win32':
-    os.system('copy configuration.txt .\\' +name_experiment+'\\'+name_experiment+'_configuration.txt')
+    os.system('copy configuration.txt .\\' +result_dir+'\\'+name_experiment+'_configuration.txt')
 else:
-    os.system('cp configuration.txt ./' +name_experiment+'/'+name_experiment+'_configuration.txt')
+    os.system('cp configuration.txt ./' +result_dir+'/'+name_experiment+'_configuration.txt')
 
 # run the experiment
 if nohup:
-    print "\n2. Run the training on GPU with nohup"
-    os.system(run_GPU +' nohup python -u ./src/retinaNN_training.py > ' +'./'+name_experiment+'/'+name_experiment+'_training.nohup')
+    print( "\n2. Run the training on GPU with nohup")
+    os.system(run_GPU +' nohup python -u ./src/retinaNN_training.py > ' +'./'+result_dir + '/' + name_experiment+'_training.nohup')
 else:
-    print "\n2. Run the training on GPU (no nohup)"
+    print ("\n2. Run the training on GPU (no nohup)")
     os.system(run_GPU +' python ./src/retinaNN_training.py')
 
 #Prediction/testing is run with a different script
+
+def sendEmail(addr_from, password, addr_to, msg):
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.ehlo()
+    server.ehlo()
+    server.starttls()
+    server.login(addr_from,password)
+    server.sendmail(addr_from, addr_to, msg)
+    server.quit()
+    
+sendEmail('doantientaipc@gmail.com','DoanTienTai','doantientai@gmail.com',name_experiment + ' is Done!')

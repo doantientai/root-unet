@@ -16,7 +16,8 @@ from keras.layers import Input, concatenate, Conv2D, MaxPooling2D, UpSampling2D,
 from keras.optimizers import Adam
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras import backend as K
-from keras.utils.visualize_util import plot
+#from keras.utils.visualize_util import plot
+from keras.utils.vis_utils import plot_model
 from keras.optimizers import SGD
 
 import sys
@@ -138,6 +139,7 @@ config.read('configuration.txt')
 path_data = config.get('data paths', 'path_local')
 #Experiment name
 name_experiment = config.get('experiment name', 'name')
+result_dir = "Experiments/" + name_experiment
 #training settings
 N_epochs = int(config.get('training settings', 'N_epochs'))
 batch_size = int(config.get('training settings', 'batch_size'))
@@ -151,14 +153,14 @@ patches_imgs_train, patches_masks_train = get_data_training(
     patch_height = int(config.get('data attributes', 'patch_height')),
     patch_width = int(config.get('data attributes', 'patch_width')),
     N_subimgs = int(config.get('training settings', 'N_subimgs')),
-    False #select the patches only inside the FOV  (default == True)
+    inside_FOV = False
 )
 
 
 #========= Save a sample of what you're feeding to the neural network ==========
 N_sample = min(patches_imgs_train.shape[0],40)
-visualize(group_images(patches_imgs_train[0:N_sample,:,:,:],5),'./'+name_experiment+'/'+"sample_input_imgs")#.show()
-visualize(group_images(patches_masks_train[0:N_sample,:,:,:],5),'./'+name_experiment+'/'+"sample_input_masks")#.show()
+visualize(group_images(patches_imgs_train[0:N_sample,:,:,:],5),result_dir+'/'+"sample_input_imgs")#.show()
+visualize(group_images(patches_masks_train[0:N_sample,:,:,:],5),result_dir+'/'+"sample_input_masks")#.show()
 
 
 #=========== Construct and save the model arcitecture =====
@@ -168,14 +170,14 @@ patch_width = patches_imgs_train.shape[3]
 model = get_unet(n_ch, patch_height, patch_width)  #the U-net model
 print "Check: final output of the network:"
 print model.output_shape
-plot(model, to_file='./'+name_experiment+'/'+name_experiment + '_model.png')   #check how the model looks like
+plot_model(model, to_file=result_dir+'/'+name_experiment + '_model.png')   #check how the model looks like
 json_string = model.to_json()
-open('./'+name_experiment+'/'+name_experiment +'_architecture.json', 'w').write(json_string)
+open(result_dir+'/'+name_experiment +'_architecture.json', 'w').write(json_string)
 
 
 
 #============  Training ==================================
-checkpointer = ModelCheckpoint(filepath='./'+name_experiment+'/'+name_experiment +'_best_weights.h5', verbose=1, monitor='val_loss', mode='auto', save_best_only=True) #save at each epoch if the validation decreased
+checkpointer = ModelCheckpoint(filepath=result_dir+'/'+name_experiment +'_best_weights.h5', verbose=1, monitor='val_loss', mode='auto', save_best_only=True) #save at each epoch if the validation decreased
 
 
 # def step_decay(epoch):
@@ -192,7 +194,7 @@ model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size
 
 
 #========== Save and test the last model ===================
-model.save_weights('./'+name_experiment+'/'+name_experiment +'_last_weights.h5', overwrite=True)
+model.save_weights(result_dir+'/'+name_experiment +'_last_weights.h5', overwrite=True)
 #test the model
 # score = model.evaluate(patches_imgs_test, masks_Unet(patches_masks_test), verbose=0)
 # print('Test score:', score[0])
