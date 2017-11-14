@@ -1,0 +1,11 @@
+Area under the ROC curve: 0.760808286597
+Area under Precision-Recall curve: 0.991684746186
+Jaccard similarity score: 0.984036045134
+F1 score (F-measure): 0.991953797964
+
+Confusion matrix:[[      0  123300]
+ [      0 7600350]]
+ACCURACY: 0.984036045134
+SENSITIVITY: 1.0
+SPECIFICITY: 0.0
+PRECISION: 0.984036045134
