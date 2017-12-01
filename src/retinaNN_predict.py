@@ -157,8 +157,11 @@ for i in range(int(N_predicted/group)):
     orig_stripe = group_images(orig_imgs[i*group:(i*group)+group,:,:,:],group)
     masks_stripe = group_images(gtruth_masks[i*group:(i*group)+group,:,:,:],group)
     pred_stripe = group_images(pred_imgs[i*group:(i*group)+group,:,:,:],group)
-    total_img = np.concatenate((orig_stripe,masks_stripe,pred_stripe),axis=0)
-    visualize(total_img,path_experiment+name_experiment +"_Original_GroundTruth_Prediction"+str(i))#.show()
+    total_img = np.concatenate((orig_stripe,masks_stripe,pred_stripe),axis=1)
+    visualize(orig_stripe,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_origin")
+    visualize(masks_stripe,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_gtruth")
+    visualize(pred_stripe,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_predict")
+    visualize(total_img,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_merged")#.show()
 
 
 #====== Evaluate the results
