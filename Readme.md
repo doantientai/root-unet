@@ -1,7 +1,6 @@
 Hello world!
 In this directory, 
 
-## Tasks:
 ### Part 0: Setup the neural network
 In this part, I try to make the Unet (along with it's source code) in https://github.com/orobix/retina-unet running on our data of tree's root. There are a few differences in the data-structure, so I need to modify the source code and re-organize the dataset structure so that they can match each other.
 
@@ -17,7 +16,7 @@ Todo list:
 ### Part 1: Training the network with the first dataset
 The goal of this part is to figure out the set of hyperparametters of the Unet which help it learn most effectively, which means the loss of the predicted output is minimized. As the first collection of data, images are very collective and have good quality. The next datasets will be more challenged.
 
-In this part, I need to train the Unet using different
+In this part, I need to train the Unet using different:
 1. ~~Batch sizes~~
 2. ~~Input sizes~~
 3. Number of conv layers
@@ -39,12 +38,12 @@ Obviously, the predicted result needs some post-process.
 ### Part 2: Post-processing predicted results 
 Source: https://github.com/doantientai/root-unet/tree/input-rgb/PostProcess
 After trying a set of image processing functions, I end up with this series of processes on the output:
-- cv2.adaptiveThreshold()
-- cv2.bitwise_not()
-- cv2.erode()
-- cv2.MORPH_CLOSE
-- morphology.remove_small_objects
-- cv2.MORPH_CLOSE again
+- cv2.adaptiveThreshold(): convert the gray output to binary
+- cv2.bitwise_not(): invert black & white pixels for more convinient when editing
+- cv2.erode(): reduce the border around all connected components
+- cv2.MORPH_CLOSE: filling gaps
+- morphology.remove_small_objects(): remove noises as they are small connected components
+- cv2.MORPH_CLOSE again:  filling gaps
 
 Below is what we get so far (hand-draw version, predicted verion, predicted verion after post-processing)
 <p align="center">
