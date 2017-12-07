@@ -36,7 +36,7 @@ from extract_patches import get_data_testing
 from extract_patches import get_data_testing_overlap
 # pre_processing.py
 from pre_processing import my_PreProc
-
+import os
 
 #========= CONFIG FILE TO READ FROM =======
 config = ConfigParser.RawConfigParser()
@@ -45,7 +45,9 @@ config.read('configuration.txt')
 #run the training on invariant or local
 path_data = config.get('data paths', 'path_local')
 
-
+def createDir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
 #original test images (for FOV selection)
 DRIVE_test_imgs_original = path_data + config.get('data paths', 'test_imgs_original')
@@ -80,7 +82,7 @@ average_mode = config.getboolean('testing settings', 'average_mode')
 # visualize(group_images(test_border_masks[0:20,:,:,:],5),'borders')#.show()
 # visualize(group_images(img_truth[0:20,:,:,:],5),'gtruth')#.show()
 
-
+createDir(path_experiment + "TestResults/")
 
 #============ Load the data and divide in patches
 patches_imgs_test = None
@@ -131,6 +133,8 @@ gtruth_masks = None
 if average_mode == True:
     pred_imgs = recompone_overlap(pred_patches, new_height, new_width, stride_height, stride_width)# predictions
     orig_imgs = my_PreProc(test_imgs_orig[0:pred_imgs.shape[0],:,:,:])    #originals
+    print "test_imgs_orig:" 
+    print test_imgs_orig.shape
     gtruth_masks = masks_test  #ground truth masks
 else:
     pred_imgs = recompone(pred_patches,13,12)       # predictions
@@ -157,11 +161,11 @@ for i in range(int(N_predicted/group)):
     orig_stripe = group_images(orig_imgs[i*group:(i*group)+group,:,:,:],group)
     masks_stripe = group_images(gtruth_masks[i*group:(i*group)+group,:,:,:],group)
     pred_stripe = group_images(pred_imgs[i*group:(i*group)+group,:,:,:],group)
-    total_img = np.concatenate((orig_stripe,masks_stripe,pred_stripe),axis=1)
-    visualize(orig_stripe,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_origin")
-    visualize(masks_stripe,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_gtruth")
-    visualize(pred_stripe,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_predict")
-    visualize(total_img,path_experiment + "/TestResults/" + name_experiment + "_" + str(i) +"_merged")#.show()
+    #total_img = np.concatenate((orig_stripe,masks_stripe,pred_stripe),axis=1)
+    visualize(orig_stripe,path_experiment + "TestResults/" + name_experiment + "_" + str(i) +"_origin")
+    visualize(masks_stripe,path_experiment + "TestResults/" + name_experiment + "_" + str(i) +"_gtruth")
+    visualize(pred_stripe,path_experiment + "TestResults/" + name_experiment + "_" + str(i) +"_predict")
+    #visualize(total_img,path_experiment + "TestResults/" + name_experiment + "_" + str(i) +"_merged")#.show()
 
 
 #====== Evaluate the results

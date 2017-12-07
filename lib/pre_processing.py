@@ -17,7 +17,8 @@ def my_PreProc(data):
     assert(len(data.shape)==4)
     assert (data.shape[1]==3)  #Use the original images
     #black-white conversion
-    train_imgs = rgb2gray(data)
+    #train_imgs = rgb2gray(data)
+    train_imgs = data
     #my preprocessing:
     train_imgs = dataset_normalized(train_imgs)
     train_imgs = clahe_equalized(train_imgs)
@@ -44,7 +45,8 @@ def histo_equalized(imgs):
 #adaptive histogram equalization is used. In this, image is divided into small blocks called "tiles" (tileSize is 8x8 by default in OpenCV). Then each of these blocks are histogram equalized as usual. So in a small area, histogram would confine to a small region (unless there is noise). If noise is there, it will be amplified. To avoid this, contrast limiting is applied. If any histogram bin is above the specified contrast limit (by default 40 in OpenCV), those pixels are clipped and distributed uniformly to other bins before applying histogram equalization. After equalization, to remove artifacts in tile borders, bilinear interpolation is applied
 def clahe_equalized(imgs):
     assert (len(imgs.shape)==4)  #4D arrays
-    assert (imgs.shape[1]==1)  #check the channel is 1
+    #assert (imgs.shape[1]==1)  #check the channel is 1
+    assert (imgs.shape[1]==3)  #check the channel is 3
     #create a CLAHE object (Arguments are optional).
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     imgs_equalized = np.empty(imgs.shape)
@@ -56,7 +58,8 @@ def clahe_equalized(imgs):
 # ===== normalize over the dataset
 def dataset_normalized(imgs):
     assert (len(imgs.shape)==4)  #4D arrays
-    assert (imgs.shape[1]==1)  #check the channel is 1
+    #assert (imgs.shape[1]==1)  #check the channel is 1
+    assert (imgs.shape[1]==3)  #check the channel is 3 (RGB)
     imgs_normalized = np.empty(imgs.shape)
     imgs_std = np.std(imgs)
     imgs_mean = np.mean(imgs)
@@ -68,7 +71,8 @@ def dataset_normalized(imgs):
 
 def adjust_gamma(imgs, gamma=1.0):
     assert (len(imgs.shape)==4)  #4D arrays
-    assert (imgs.shape[1]==1)  #check the channel is 1
+    #assert (imgs.shape[1]==1)  #check the channel is 1
+    assert (imgs.shape[1]==3)  #check the channel is 3
     # build a lookup table mapping the pixel values [0, 255] to
     # their adjusted gamma values
     invGamma = 1.0 / gamma

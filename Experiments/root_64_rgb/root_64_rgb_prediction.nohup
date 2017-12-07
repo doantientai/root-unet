@@ -1,0 +1,48 @@
+Using Theano backend.
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: GeForce GTX 1080 (CNMeM is disabled, cuDNN 5110)
+
+the side H is not compatible with the selected stride of 20
+img_h 1661, patch_h 64, stride_h 20
+(img_h - patch_h) MOD stride_h: 17
+So the H dim will be padded with additional 3 pixels
+the side W is not compatible with the selected stride of 20
+img_w 2325, patch_w 64, stride_w 20
+(img_w - patch_w) MOD stride_w: 1
+So the W dim will be padded with additional 19 pixels
+new full images shape: 
+(2, 3, 1664, 2344)
+
+test images shape:
+(2, 3, 1664, 2344)
+
+test mask shape:
+(2, 1, 1661, 2325)
+test images range (min-max): 0.0 - 1.0
+test masks are within 0-1
+
+Number of patches on h : 81
+Number of patches on w : 115
+number of patches per image: 9315, totally for this dataset: 18630
+
+test PATCHES images shape:
+(18630, 3, 64, 64)
+test PATCHES images range (min-max): 0.0 - 1.0
+predicted images size :
+(18630, 4096, 2)
+N_patches_h: 81
+N_patches_w: 115
+N_patches_img: 9315
+According to the dimension inserted, there are 2 full images (of 1664x2344 each)
+(2, 1, 1664, 2344)
+Orig imgs shape: (12, 3, 1661, 2325)
+pred imgs shape: (2, 1, 1661, 2325)
+Gtruth imgs shape: (2, 1, 1661, 2325)
+Traceback (most recent call last):
+  File "./src/retinaNN_predict.py", line 160, in <module>
+    masks_stripe = group_images(gtruth_masks[i*group:(i*group)+group,:,:,:],group)
+  File "./lib/help_functions.py", line 33, in group_images
+    totimg = all_stripe[0]
+IndexError: list index out of range
