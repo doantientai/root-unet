@@ -1,5 +1,4 @@
-Hello world!
-In this directory, 
+This note is a log of all the progress of the project.
 
 ### Part 0: Setup the neural network
 In this part, I try to make the Unet (along with it's source code) in https://github.com/orobix/retina-unet running on our data of tree's root. There are a few differences in the data-structure, so I need to modify the source code and re-organize the dataset structure so that they can match each other.
