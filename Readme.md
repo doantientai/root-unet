@@ -51,6 +51,3 @@ Below is what we get so far (hand-draw version, predicted verion, predicted veri
   <img src="https://raw.githubusercontent.com/doantientai/root-unet/input-rgb/Experiments/root_64_rgb/TestResults/root_64_rgb_1_predict.png" width="500"/>
   <img src="https://raw.githubusercontent.com/doantientai/root-unet/input-rgb/PostProcess/im_dn_inv.png" width="500"/>
 </p>
-
-![alt text](http://i0.kym-cdn.com/photos/images/newsfeed/000/531/557/a88.jpg "We need to go deeper")
-
