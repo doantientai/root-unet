@@ -25,7 +25,7 @@ The most effective batch size is 64. This value also depends on the computer's c
 The best input size is 64x64 as it helps the validation loss to be more converged, comparing to the other input sizes.
 
 
-
+=))))))))))
 
 
 ![alt text](http://i0.kym-cdn.com/photos/images/newsfeed/000/531/557/a88.jpg "We need to go deeper")
