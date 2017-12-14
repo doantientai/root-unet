@@ -23,6 +23,10 @@ def my_PreProc(data):
     train_imgs = dataset_normalized(train_imgs)
     train_imgs = clahe_equalized(train_imgs)
     train_imgs = adjust_gamma(train_imgs, 1.2)
+    print("train_imgs: ", train_imgs.shape)
+#     print("AVG value of layer R: ", np.average(train_imgs[0,0,:,:]))
+#     print("AVG value of layer G: ", np.average(train_imgs[0,1,:,:]))
+#     print("AVG value of layer B: ", np.average(train_imgs[0,2,:,:]))
     train_imgs = train_imgs/255.  #reduce to 0-1 range
     return train_imgs
 
@@ -49,9 +53,23 @@ def clahe_equalized(imgs):
     assert (imgs.shape[1]==3)  #check the channel is 3
     #create a CLAHE object (Arguments are optional).
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+    print("imgs.shape: ", imgs.shape)
     imgs_equalized = np.empty(imgs.shape)
+    print("imgs_equalized.shape: ", imgs_equalized.shape)
+    
+    
+#     print("AVG value of layer R: ", np.average(imgs[0,0,0,0]))
+#     print("AVG value of layer G: ", np.average(imgs[0,1,0,0]))
+#     print("AVG value of layer B: ", np.average(imgs[0,2,0,0]))
+    
     for i in range(imgs.shape[0]):
-        imgs_equalized[i,0] = clahe.apply(np.array(imgs[i,0], dtype = np.uint8))
+        for c in range(imgs.shape[1]):
+#             print("shape imgs_equalized[i,c]", imgs_equalized[i,c].shape)
+#             print("shape imgs[i,c]", imgs[i,c].shape)
+            imgs_equalized[i,c] = clahe.apply(np.array(imgs[i,c,:,:], dtype = np.uint8))
+            
+#             print("AVG imgs_equalized[i,c]:", np.average(imgs_equalized[i,c]))
+#             print("AVG imgs[i,c]:", np.average(imgs[i,c,:,:]))
     return imgs_equalized
 
 
@@ -80,5 +98,6 @@ def adjust_gamma(imgs, gamma=1.0):
     # apply gamma correction using the lookup table
     new_imgs = np.empty(imgs.shape)
     for i in range(imgs.shape[0]):
-        new_imgs[i,0] = cv2.LUT(np.array(imgs[i,0], dtype = np.uint8), table)
+        for c in range(imgs.shape[1]):
+            new_imgs[i,c] = cv2.LUT(np.array(imgs[i,c,:,:], dtype = np.uint8), table)
     return new_imgs
