@@ -20,10 +20,10 @@ def my_PreProc(data):
     #train_imgs = rgb2gray(data)
     train_imgs = data
     #my preprocessing:
+    print("train_imgs: ", train_imgs.shape)
     train_imgs = dataset_normalized(train_imgs)
     train_imgs = clahe_equalized(train_imgs)
     train_imgs = adjust_gamma(train_imgs, 1.2)
-    print("train_imgs: ", train_imgs.shape)
 #     print("AVG value of layer R: ", np.average(train_imgs[0,0,:,:]))
 #     print("AVG value of layer G: ", np.average(train_imgs[0,1,:,:]))
 #     print("AVG value of layer B: ", np.average(train_imgs[0,2,:,:]))
@@ -81,7 +81,15 @@ def dataset_normalized(imgs):
     imgs_normalized = np.empty(imgs.shape)
     imgs_std = np.std(imgs)
     imgs_mean = np.mean(imgs)
+    print("imgs_std:")
+    print(imgs_std)
+    print("imgs_mean:")
+    print(imgs_mean)
+    print("imgs:")
+    print(imgs.shape)
     imgs_normalized = (imgs-imgs_mean)/imgs_std
+#     imgs_normalized = imgs
+    print("Passed!")
     for i in range(imgs.shape[0]):
         imgs_normalized[i] = ((imgs_normalized[i] - np.min(imgs_normalized[i])) / (np.max(imgs_normalized[i])-np.min(imgs_normalized[i])))*255
     return imgs_normalized

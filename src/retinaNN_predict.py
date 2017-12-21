@@ -133,8 +133,8 @@ gtruth_masks = None
 if average_mode == True:
     pred_imgs = recompone_overlap(pred_patches, new_height, new_width, stride_height, stride_width)# predictions
     orig_imgs = my_PreProc(test_imgs_orig[0:pred_imgs.shape[0],:,:,:])    #originals
-    print "test_imgs_orig:" 
-    print test_imgs_orig.shape
+#     print "test_imgs_orig:" 
+#     print test_imgs_orig.shape
     gtruth_masks = masks_test  #ground truth masks
 else:
     pred_imgs = recompone(pred_patches,13,12)       # predictions

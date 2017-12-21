@@ -95,7 +95,8 @@ def get_data_testing_overlap(DRIVE_test_imgs_original, DRIVE_test_groudTruth, Im
     ### test
     test_imgs_original = load_hdf5(DRIVE_test_imgs_original)
     test_masks = load_hdf5(DRIVE_test_groudTruth)
-
+#     print("test_imgs_original:")
+#     print(test_imgs_original.shape)
     test_imgs = my_PreProc(test_imgs_original)
     test_masks = test_masks/255.
     #extend both images and masks so they can be divided exactly by the patches dimensions
