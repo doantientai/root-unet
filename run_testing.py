@@ -47,4 +47,4 @@ def sendEmail(addr_from, password, addr_to, msg):
     server.sendmail(addr_from, addr_to, msg)
     server.quit()
     
-sendEmail('doantientaipc@gmail.com','DoanTienTai','doantientai@gmail.com', "The test " + name_experiment + ' is Done!')
+sendEmail('doantientaipc@gmail.com','Doantientai1','doantientai@gmail.com', "The test " + name_experiment + ' is Done!')

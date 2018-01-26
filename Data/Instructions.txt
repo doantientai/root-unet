@@ -1,0 +1,6 @@
+1. Run Rename
+2. Run check pairs
+3. Run Preprocess (this will save to ..._r), remember to choose BORDER value properly to completely remove borders
+4. Run Make-k-Folds: choose the number of folds carefully
+5. Go back to main dir and run prepare_datasets
+6. Happy training!
