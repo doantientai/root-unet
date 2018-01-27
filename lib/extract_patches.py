@@ -8,6 +8,9 @@ from help_functions import group_images
 
 from pre_processing import my_PreProc
 
+#### Tai was here BEGIN
+from scipy import misc, rot90, flipud
+#### Tai was here END
 
 #To select the same images
 # random.seed(10)
@@ -27,8 +30,8 @@ def get_data_training(DRIVE_train_imgs_original,
     train_imgs = my_PreProc(train_imgs_original)
     train_masks = train_masks/255.
 
-    train_imgs = train_imgs[:,:,332:332+1661,:]  #cut bottom and top so now it is 565*565
-    train_masks = train_masks[:,:,332:332+1661,:]  #cut bottom and top so now it is 565*565
+#     train_imgs = train_imgs[:,:,332:332+1661,:]  #cut bottom and top so now it is 565*565
+#     train_masks = train_masks[:,:,332:332+1661,:]  #cut bottom and top so now it is 565*565
     data_consistency_check(train_imgs,train_masks)
 
     #check masks are within 0-1
@@ -140,21 +143,30 @@ def extract_random(full_imgs,full_masks, patch_h,patch_w, N_patches, inside=True
     if (N_patches%full_imgs.shape[0] != 0):
         print ("N_patches: ", N_patches)
         print ("full_imgs.shape" , full_imgs.shape[0])
-        print "N_patches: plase enter a multiple of 20"
+        print ("N_patches: plase enter a multiple of" + str(full_imgs.shape[0]))
         exit()
     assert (len(full_imgs.shape)==4 and len(full_masks.shape)==4)  #4D arrays
     assert (full_imgs.shape[1]==1 or full_imgs.shape[1]==3)  #check the channel is 1 or 3
     assert (full_masks.shape[1]==1)   #masks only black and white
     assert (full_imgs.shape[2] == full_masks.shape[2] and full_imgs.shape[3] == full_masks.shape[3])
-    patches = np.empty((N_patches,full_imgs.shape[1],patch_h,patch_w))
-    patches_masks = np.empty((N_patches,full_masks.shape[1],patch_h,patch_w))
+#     patches = np.empty((N_patches,full_imgs.shape[1],patch_h,patch_w))
+#     patches_masks = np.empty((N_patches,full_masks.shape[1],patch_h,patch_w))
+
+    #### Tai was here BEGIN 
+    patches = np.empty((N_patches*8,full_imgs.shape[1],patch_h,patch_w))
+    patches_masks = np.empty((N_patches*8,full_masks.shape[1],patch_h,patch_w))
+    #### Tai was here END
+
     img_h = full_imgs.shape[2]  #height of the full image
     img_w = full_imgs.shape[3] #width of the full image
+    
     # (0,0) in the center of the image
     patch_per_img = int(N_patches/full_imgs.shape[0])  #N_patches equally divided in the full images
-    print "patches per full image: " +str(patch_per_img)
+    print "Patches per full image: " +str(patch_per_img)
+    print "Which should be around " + str((full_imgs.shape[2]*full_imgs.shape[3])/(patch_h*patch_w))
     iter_tot = 0   #iter over the total numbe rof patches (N_patches)
     for i in range(full_imgs.shape[0]):  #loop over the full images
+        print "Processing image #" + str(i)
         k=0
         while k <patch_per_img:
             x_center = random.randint(0+int(patch_w/2),img_w-int(patch_w/2))
@@ -167,12 +179,59 @@ def extract_random(full_imgs,full_masks, patch_h,patch_w, N_patches, inside=True
                     continue
             patch = full_imgs[i,:,y_center-int(patch_h/2):y_center+int(patch_h/2),x_center-int(patch_w/2):x_center+int(patch_w/2)]
             patch_mask = full_masks[i,:,y_center-int(patch_h/2):y_center+int(patch_h/2),x_center-int(patch_w/2):x_center+int(patch_w/2)]
-            patches[iter_tot]=patch
-            patches_masks[iter_tot]=patch_mask
-            iter_tot +=1   #total
-            k+=1  #per full_img
-    return patches, patches_masks
+            
+            #### Tai was here BEGIN
+            # if > 95% of the mask is white, then skip
+            if np.average(patch_mask) <= 0.9:
+                print "patch_mask average: " + str(np.average(patch_mask))
+                # FlipRotate patches (input images)
+                patch_1, patch_2, patch_3, patch_0f, patch_1f, patch_2f, patch_3f = FlipRotate(patch)
+                # appent to the patches list
+                patches[iter_tot]=patch
+                patches[iter_tot+1]=patch_1
+                patches[iter_tot+2]=patch_2
+                patches[iter_tot+3]=patch_3
+                patches[iter_tot+4]=patch_0f
+                patches[iter_tot+5]=patch_1f
+                patches[iter_tot+6]=patch_2f
+                patches[iter_tot+7]=patch_3f
 
+                # FlipRotate masks (output images)
+                patch_mask_1, patch_mask_2, patch_mask_3, patch_mask_0f, patch_mask_1f, patch_mask_2f, patch_mask_3f = FlipRotate(patch_mask)
+                # appent to the masks list
+                patches_masks[iter_tot]=patch_mask
+                patches_masks[iter_tot+1]=patch_mask_1
+                patches_masks[iter_tot+2]=patch_mask_2
+                patches_masks[iter_tot+3]=patch_mask_3
+                patches_masks[iter_tot+4]=patch_mask_0f
+                patches_masks[iter_tot+5]=patch_mask_1f
+                patches_masks[iter_tot+6]=patch_mask_2f
+                patches_masks[iter_tot+7]=patch_mask_3f
+
+                #### Tai was here END
+
+    #             patches[iter_tot]=patch
+    #             patches_masks[iter_tot]=patch_mask
+                iter_tot +=8   #total
+            k+=1  #per full_img
+        print "-->" + str(iter_tot) + " patches generated."
+    return patches[0:iter_tot], patches_masks[0:iter_tot]
+
+
+def FlipRotate(patch):
+    # rorate
+    patch_0 = patch
+    patch_1 = rot90(patch_0, axes=(1,2))
+    patch_2 = rot90(patch_1, axes=(1,2))
+    patch_3 = rot90(patch_2, axes=(1,2))
+
+    # flip
+    patch_0f = np.swapaxes(flipud(np.swapaxes(patch_0,0,2)),0,2)
+    patch_1f = np.swapaxes(flipud(np.swapaxes(patch_1,0,2)),0,2)
+    patch_2f = np.swapaxes(flipud(np.swapaxes(patch_2,0,2)),0,2)
+    patch_3f = np.swapaxes(flipud(np.swapaxes(patch_3,0,2)),0,2)
+    
+    return patch_1, patch_2, patch_3, patch_0f, patch_1f, patch_2f, patch_3f
 
 #check if the patch is fully contained in the FOV
 def is_patch_inside_FOV(x,y,img_w,img_h,patch_h):
@@ -301,9 +360,9 @@ def recompone(data,N_h,N_w):
     assert (data.shape[1]==1 or data.shape[1]==3)  #check the channel is 1 or 3
     assert(len(data.shape)==4)       
     N_pacth_per_img = N_w*N_h
-    print("N_w:",N_w, "N_h:", N_h)
-    print("data.shape:",data.shape)
-    print("N_pacth_per_img", N_pacth_per_img)
+#     print("N_w:",N_w, "N_h:", N_h)
+#     print("data.shape:",data.shape)
+#     print("N_pacth_per_img", N_pacth_per_img)
     assert(data.shape[0]%N_pacth_per_img == 0)
     N_full_imgs = data.shape[0]/N_pacth_per_img
     patch_h = data.shape[2]

@@ -10,7 +10,7 @@ test_border_masks = DRIVE_dataset_borderMasks_test.hdf5
 
 
 [experiment name]
-name = root_64_rgb_crop256
+name = root_64_rgb_crop256_flrt
 
 
 [data attributes]
@@ -21,12 +21,12 @@ patch_width = 64
 
 [training settings]
 #number of total patches:
-N_subimgs = 12000
+N_subimgs = 6000
 #if patches are extracted only inside the field of view:
 inside_FOV = False
 #Number of training epochs
 N_epochs = 100
-batch_size = 128
+batch_size = 64
 #if running with nohup
 nohup = True
 

@@ -1,0 +1,37 @@
+Using Theano backend.
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: GeForce GTX 1080 (CNMeM is disabled, cuDNN 5110)
+('train_imgs: ', (12, 3, 1661, 2325))
+imgs_std:
+28.3346068047
+imgs_mean:
+44.8139587788
+imgs:
+(12, 3, 1661, 2325)
+Passed!
+('imgs.shape: ', (12, 3, 1661, 2325))
+('imgs_equalized.shape: ', (12, 3, 1661, 2325))
+
+train images/masks shape:
+(12, 3, 1661, 2325)
+train images range (min-max): 0.0 - 1.0
+train masks are within 0-1
+
+patches per full image: 1000
+which should be around 942
+
+train PATCHES images/masks shape:
+(12000, 3, 64, 64)
+train PATCHES images range (min-max): 0.0 - 1.0
+./src/retinaNN_training.py:129: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Elemwise{t..., inputs=/input_1)`
+  model = Model(input=inputs, output=conv7)
+Check: final output of the network:
+(None, 4096, 2)
+Traceback (most recent call last):
+  File "./src/retinaNN_training.py", line 264, in <module>
+    patches_masks_train = masks_Unet(patches_masks_train)  #reduce memory consumption
+  File "./lib/help_functions.py", line 63, in masks_Unet
+    if  masks[i,j] == 0:
+KeyboardInterrupt

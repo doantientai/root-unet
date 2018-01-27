@@ -20,7 +20,7 @@ def my_PreProc(data):
     #train_imgs = rgb2gray(data)
     train_imgs = data
     #my preprocessing:
-    print("train_imgs: ", train_imgs.shape)
+#     print("train_imgs: ", train_imgs.shape)
     train_imgs = dataset_normalized(train_imgs)
     train_imgs = clahe_equalized(train_imgs)
     train_imgs = adjust_gamma(train_imgs, 1.2)
@@ -53,9 +53,9 @@ def clahe_equalized(imgs):
     assert (imgs.shape[1]==3)  #check the channel is 3
     #create a CLAHE object (Arguments are optional).
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-    print("imgs.shape: ", imgs.shape)
+#     print("imgs.shape: ", imgs.shape)
     imgs_equalized = np.empty(imgs.shape)
-    print("imgs_equalized.shape: ", imgs_equalized.shape)
+#     print("imgs_equalized.shape: ", imgs_equalized.shape)
     
     
 #     print("AVG value of layer R: ", np.average(imgs[0,0,0,0]))
@@ -81,15 +81,15 @@ def dataset_normalized(imgs):
     imgs_normalized = np.empty(imgs.shape)
     imgs_std = np.std(imgs)
     imgs_mean = np.mean(imgs)
-    print("imgs_std:")
-    print(imgs_std)
-    print("imgs_mean:")
-    print(imgs_mean)
-    print("imgs:")
-    print(imgs.shape)
+#     print("imgs_std:")
+#     print(imgs_std)
+#     print("imgs_mean:")
+#     print(imgs_mean)
+#     print("imgs:")
+#     print(imgs.shape)
     imgs_normalized = (imgs-imgs_mean)/imgs_std
 #     imgs_normalized = imgs
-    print("Passed!")
+#     print("Passed!")
     for i in range(imgs.shape[0]):
         imgs_normalized[i] = ((imgs_normalized[i] - np.min(imgs_normalized[i])) / (np.max(imgs_normalized[i])-np.min(imgs_normalized[i])))*255
     return imgs_normalized
