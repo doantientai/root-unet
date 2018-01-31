@@ -1,0 +1,90 @@
+Using Theano backend.
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: GeForce GTX 1080 (CNMeM is disabled, cuDNN 5110)
+
+train images/masks shape:
+(32, 3, 1860, 1328)
+train images range (min-max): 0.0078431372549 - 1.0
+train masks are within 0-1
+
+Patches per full image: 75
+Which should be around 150
+Processing image #0
+-->0 patches generated.
+Processing image #1
+-->0 patches generated.
+Processing image #2
+-->0 patches generated.
+Processing image #3
+-->0 patches generated.
+Processing image #4
+-->0 patches generated.
+Processing image #5
+-->0 patches generated.
+Processing image #6
+-->0 patches generated.
+Processing image #7
+-->0 patches generated.
+Processing image #8
+-->0 patches generated.
+Processing image #9
+-->0 patches generated.
+Processing image #10
+-->0 patches generated.
+Processing image #11
+-->0 patches generated.
+Processing image #12
+-->0 patches generated.
+Processing image #13
+-->0 patches generated.
+Processing image #14
+-->0 patches generated.
+Processing image #15
+-->0 patches generated.
+Processing image #16
+-->0 patches generated.
+Processing image #17
+-->0 patches generated.
+Processing image #18
+-->0 patches generated.
+Processing image #19
+-->0 patches generated.
+Processing image #20
+-->0 patches generated.
+Processing image #21
+-->0 patches generated.
+Processing image #22
+-->0 patches generated.
+Processing image #23
+-->0 patches generated.
+Processing image #24
+-->0 patches generated.
+Processing image #25
+-->0 patches generated.
+Processing image #26
+-->0 patches generated.
+Processing image #27
+-->0 patches generated.
+Processing image #28
+-->0 patches generated.
+Processing image #29
+-->0 patches generated.
+Processing image #30
+-->0 patches generated.
+Processing image #31
+-->0 patches generated.
+
+train PATCHES images/masks shape:
+(0, 3, 128, 128)
+Traceback (most recent call last):
+  File "./src/retinaNN_training.py", line 228, in <module>
+    inside_FOV = False
+  File "./lib/extract_patches.py", line 51, in get_data_training
+    print "train PATCHES images range (min-max): " +str(np.min(patches_imgs_train)) +' - '+str(np.max(patches_imgs_train))
+  File "/home/doantientai/anaconda3/envs/keras1.1/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2352, in amin
+    out=out, **kwargs)
+  File "/home/doantientai/anaconda3/envs/keras1.1/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
