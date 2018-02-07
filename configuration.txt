@@ -10,22 +10,25 @@ test_border_masks = DRIVE_dataset_borderMasks_test.hdf5
 
 
 [experiment name]
-name = root_1n2_cr15p_flrt_300e
+name = root_1n2_32_cr15p_flrt_1000e
 
 
 [data attributes]
 #Dimensions of the patches extracted from the full images
-patch_height = 128
-patch_width = 128
+patch_height = 32
+patch_width = 32
 
 
 [training settings]
+#learning rate initial
+learning_rate_ini = 0.05
+
 #number of total patches:
 N_subimgs = 2400
 #if patches are extracted only inside the field of view:
 inside_FOV = False
 #Number of training epochs
-N_epochs = 300
+N_epochs = 1000
 batch_size = 64
 #if running with nohup
 nohup = True

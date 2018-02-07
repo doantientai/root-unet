@@ -182,7 +182,7 @@ def extract_random(full_imgs,full_masks, patch_h,patch_w, N_patches, inside=True
             
             #### Tai was here BEGIN
             # if > 95% of the mask is white, then skip
-            if np.average(patch_mask) <= 0.9:
+            if np.average(patch_mask) <= 0.95:
                 print "patch_mask average: " + str(np.average(patch_mask))
                 # FlipRotate patches (input images)
                 patch_1, patch_2, patch_3, patch_0f, patch_1f, patch_2f, patch_3f = FlipRotate(patch)

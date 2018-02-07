@@ -1,8 +1,8 @@
 # input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb/TestResults/root_64_rgb_1_predict.png'
 
-input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_128_rgb_crop256_flrt_500e/TestResults/root_128_rgb_crop256_flrt_500e_0_predict.png'
+input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb_crop256_flrt/TestResults/root_64_rgb_crop256_flrt_0_predict.png'
 
-gt_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_128_rgb_crop256_flrt_500e/TestResults/root_128_rgb_crop256_flrt_500e_0_gtruth.png'
+gt_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb_crop256_flrt/TestResults/root_64_rgb_crop256_flrt_0_gtruth.png'
 
 from PIL import Image
 from matplotlib.pyplot import imshow, imsave
@@ -47,7 +47,7 @@ kernel_close = np.ones((5,5),np.uint8)
 im_close = closing = cv2.morphologyEx(im_ero, cv2.MORPH_CLOSE, kernel_close)
 # cv2.imwrite('im_close.png', im_close)
 
-im_dn = morphology.remove_small_objects(im_close.astype('bool'),64)
+im_dn = morphology.remove_small_objects(im_close.astype('bool'),32)
 im_dn = np.array(im_dn, dtype=np.uint8)
 
 kernel_close = np.ones((5,5),np.uint8)

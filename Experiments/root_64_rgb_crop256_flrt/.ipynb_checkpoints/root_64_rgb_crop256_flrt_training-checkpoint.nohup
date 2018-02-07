@@ -1,0 +1,565 @@
+Using Theano backend.
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: GeForce GTX 1080 (CNMeM is disabled, cuDNN 5110)
+
+train images/masks shape:
+(12, 3, 1661, 2325)
+train images range (min-max): 0.0 - 1.0
+train masks are within 0-1
+
+Patches per full image: 500
+Which should be around 942
+Processing image #0
+patch_mask average: 0.751625689338
+patch_mask average: 0.894780177696
+patch_mask average: 0.85047009038
+patch_mask average: 0.882196882659
+patch_mask average: 0.848524624694
+-->40 patches generated.
+Processing image #1
+patch_mask average: 0.857172947304
+patch_mask average: 0.877360026042
+patch_mask average: 0.890550321691
+patch_mask average: 0.892471852022
+patch_mask average: 0.845202397365
+patch_mask average: 0.863261144301
+patch_mask average: 0.878297334559
+patch_mask average: 0.873935355392
+patch_mask average: 0.826449525123
+patch_mask average: 0.87770948223
+patch_mask average: 0.845523131127
+patch_mask average: 0.875854970895
+patch_mask average: 0.840188419118
+patch_mask average: 0.815302351409
+patch_mask average: 0.894682521446
+patch_mask average: 0.888088809743
+patch_mask average: 0.890595320159
+patch_mask average: 0.832878561581
+patch_mask average: 0.878537645527
+patch_mask average: 0.894532207414
+patch_mask average: 0.882703354779
+patch_mask average: 0.859501378676
+patch_mask average: 0.87855870864
+patch_mask average: 0.864949065564
+patch_mask average: 0.898156020221
+patch_mask average: 0.836475566789
+patch_mask average: 0.89771752451
+patch_mask average: 0.867588656556
+patch_mask average: 0.723683555453
+patch_mask average: 0.880147058824
+patch_mask average: 0.826326018689
+patch_mask average: 0.877021101409
+patch_mask average: 0.879275811887
+patch_mask average: 0.836365464154
+patch_mask average: 0.843556602328
+patch_mask average: 0.857480277267
+patch_mask average: 0.888826976103
+patch_mask average: 0.8763671875
+patch_mask average: 0.881230851716
+-->352 patches generated.
+Processing image #2
+patch_mask average: 0.893075980392
+-->360 patches generated.
+Processing image #3
+patch_mask average: 0.732279220282
+patch_mask average: 0.836564606311
+patch_mask average: 0.865634574142
+patch_mask average: 0.8943426394
+patch_mask average: 0.861150045956
+patch_mask average: 0.894154986213
+patch_mask average: 0.808259612439
+patch_mask average: 0.877273858762
+-->424 patches generated.
+Processing image #4
+patch_mask average: 0.845753867953
+patch_mask average: 0.887082567402
+patch_mask average: 0.890648935355
+patch_mask average: 0.889056755515
+patch_mask average: 0.882616230086
+patch_mask average: 0.836054304534
+patch_mask average: 0.898885569853
+patch_mask average: 0.89677064185
+patch_mask average: 0.832872817096
+patch_mask average: 0.884787645527
+-->504 patches generated.
+Processing image #5
+patch_mask average: 0.889911726409
+patch_mask average: 0.820112400429
+patch_mask average: 0.795743336397
+patch_mask average: 0.787444469975
+patch_mask average: 0.85562097886
+patch_mask average: 0.841127642463
+patch_mask average: 0.869044883578
+patch_mask average: 0.7863214231
+patch_mask average: 0.798823337929
+patch_mask average: 0.794362745098
+patch_mask average: 0.753202550551
+patch_mask average: 0.820797909007
+patch_mask average: 0.850813802083
+patch_mask average: 0.751306870404
+patch_mask average: 0.80836205576
+patch_mask average: 0.871195235907
+patch_mask average: 0.893941482843
+patch_mask average: 0.852254710478
+patch_mask average: 0.802203967525
+patch_mask average: 0.868311504289
+patch_mask average: 0.872023399203
+patch_mask average: 0.857594209559
+patch_mask average: 0.845064529718
+patch_mask average: 0.881391697304
+patch_mask average: 0.865595320159
+patch_mask average: 0.737031824449
+patch_mask average: 0.845881204044
+patch_mask average: 0.89758348652
+patch_mask average: 0.757750268076
+patch_mask average: 0.846898935355
+patch_mask average: 0.7558660769
+patch_mask average: 0.730800015319
+patch_mask average: 0.89818091299
+patch_mask average: 0.587332452512
+patch_mask average: 0.864219515931
+patch_mask average: 0.864601524203
+patch_mask average: 0.845458026961
+patch_mask average: 0.657036037071
+patch_mask average: 0.891435929841
+patch_mask average: 0.877964154412
+patch_mask average: 0.859784773284
+patch_mask average: 0.840202780331
+patch_mask average: 0.89533739277
+patch_mask average: 0.754556334252
+patch_mask average: 0.884475528493
+patch_mask average: 0.888515816483
+patch_mask average: 0.812525850184
+patch_mask average: 0.839225260417
+patch_mask average: 0.738572303922
+patch_mask average: 0.801295381434
+patch_mask average: 0.760672296262
+patch_mask average: 0.776863128064
+patch_mask average: 0.81511852788
+patch_mask average: 0.846570542279
+patch_mask average: 0.882956112132
+patch_mask average: 0.825247970282
+patch_mask average: 0.896060240502
+patch_mask average: 0.769804113051
+patch_mask average: 0.881424249387
+patch_mask average: 0.840290862439
+patch_mask average: 0.454099647672
+patch_mask average: 0.845849609375
+patch_mask average: 0.867985983456
+patch_mask average: 0.875147441789
+patch_mask average: 0.89250536152
+patch_mask average: 0.796145450368
+patch_mask average: 0.693014705882
+patch_mask average: 0.788246783088
+patch_mask average: 0.742845243566
+patch_mask average: 0.82537243413
+patch_mask average: 0.899402573529
+-->1072 patches generated.
+Processing image #6
+-->1072 patches generated.
+Processing image #7
+patch_mask average: 0.897543275123
+patch_mask average: 0.893238740809
+patch_mask average: 0.898619408701
+patch_mask average: 0.879037415748
+patch_mask average: 0.848219209559
+patch_mask average: 0.8777410769
+patch_mask average: 0.878094362745
+patch_mask average: 0.863620174632
+patch_mask average: 0.886158662684
+patch_mask average: 0.842062078738
+patch_mask average: 0.854438572304
+patch_mask average: 0.898763020833
+patch_mask average: 0.860402305453
+patch_mask average: 0.883370672488
+patch_mask average: 0.895307712929
+patch_mask average: 0.853730085784
+patch_mask average: 0.884087775735
+patch_mask average: 0.885105507047
+patch_mask average: 0.836085899203
+patch_mask average: 0.888948567708
+patch_mask average: 0.831282552083
+patch_mask average: 0.886953316483
+patch_mask average: 0.806139897365
+patch_mask average: 0.732486979167
+patch_mask average: 0.830918734681
+patch_mask average: 0.872794117647
+patch_mask average: 0.887808287377
+patch_mask average: 0.8216729856
+patch_mask average: 0.824887025123
+patch_mask average: 0.847224456189
+patch_mask average: 0.843753829657
+patch_mask average: 0.885004978554
+patch_mask average: 0.894356043199
+-->1336 patches generated.
+Processing image #8
+patch_mask average: 0.761082069547
+patch_mask average: 0.84653894761
+patch_mask average: 0.754853132659
+-->1360 patches generated.
+Processing image #9
+patch_mask average: 0.883181104473
+patch_mask average: 0.898007621017
+patch_mask average: 0.893213848039
+patch_mask average: 0.896754365809
+-->1392 patches generated.
+Processing image #10
+patch_mask average: 0.898634727328
+patch_mask average: 0.847187117034
+patch_mask average: 0.833499923407
+patch_mask average: 0.867334941789
+patch_mask average: 0.727878944547
+patch_mask average: 0.854696116728
+patch_mask average: 0.871176087623
+patch_mask average: 0.879140816483
+patch_mask average: 0.895379518995
+patch_mask average: 0.590394263174
+patch_mask average: 0.591951976103
+patch_mask average: 0.885229970895
+patch_mask average: 0.896497778799
+patch_mask average: 0.861705346201
+patch_mask average: 0.598769722733
+patch_mask average: 0.844519761029
+patch_mask average: 0.622797947304
+patch_mask average: 0.873198146446
+patch_mask average: 0.875686465993
+patch_mask average: 0.865561810662
+patch_mask average: 0.825468175551
+patch_mask average: 0.594463273591
+-->1568 patches generated.
+Processing image #11
+patch_mask average: 0.870029105392
+patch_mask average: 0.776502182904
+patch_mask average: 0.889340150123
+patch_mask average: 0.875194355086
+patch_mask average: 0.881841681985
+patch_mask average: 0.874921492034
+patch_mask average: 0.875034466912
+patch_mask average: 0.869247855392
+patch_mask average: 0.868468520221
+patch_mask average: 0.859372127757
+patch_mask average: 0.827002910539
+patch_mask average: 0.869110945159
+patch_mask average: 0.869514016544
+patch_mask average: 0.810852290135
+patch_mask average: 0.887038526348
+patch_mask average: 0.869631778493
+patch_mask average: 0.809090647978
+patch_mask average: 0.869737094056
+patch_mask average: 0.85653626685
+patch_mask average: 0.86768248315
+patch_mask average: 0.875761144301
+-->1736 patches generated.
+
+train PATCHES images/masks shape:
+(1736, 3, 64, 64)
+train PATCHES images range (min-max): 0.0078431372549 - 0.937254901961
+./src/retinaNN_training.py:129: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Elemwise{t..., inputs=/input_1)`
+  model = Model(input=inputs, output=conv7)
+Check: final output of the network:
+(None, 4096, 2)
+./src/retinaNN_training.py:265: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.
+  model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+Train on 1562 samples, validate on 174 samples
+Epoch 1/100
+Epoch 00000: val_loss improved from inf to 0.57957, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.6474 - acc: 0.8047 - val_loss: 0.5796 - val_acc: 0.9363
+Epoch 2/100
+Epoch 00001: val_loss improved from 0.57957 to 0.34911, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.4709 - acc: 0.9500 - val_loss: 0.3491 - val_acc: 0.9363
+Epoch 3/100
+Epoch 00002: val_loss improved from 0.34911 to 0.29065, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2683 - acc: 0.9500 - val_loss: 0.2906 - val_acc: 0.9363
+Epoch 4/100
+Epoch 00003: val_loss improved from 0.29065 to 0.28420, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2519 - acc: 0.9500 - val_loss: 0.2842 - val_acc: 0.9363
+Epoch 5/100
+Epoch 00004: val_loss improved from 0.28420 to 0.27863, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2465 - acc: 0.9500 - val_loss: 0.2786 - val_acc: 0.9363
+Epoch 6/100
+Epoch 00005: val_loss improved from 0.27863 to 0.27346, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2417 - acc: 0.9500 - val_loss: 0.2735 - val_acc: 0.9363
+Epoch 7/100
+Epoch 00006: val_loss improved from 0.27346 to 0.26844, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2373 - acc: 0.9500 - val_loss: 0.2684 - val_acc: 0.9363
+Epoch 8/100
+Epoch 00007: val_loss improved from 0.26844 to 0.26348, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2331 - acc: 0.9500 - val_loss: 0.2635 - val_acc: 0.9363
+Epoch 9/100
+Epoch 00008: val_loss improved from 0.26348 to 0.25850, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2288 - acc: 0.9500 - val_loss: 0.2585 - val_acc: 0.9363
+Epoch 10/100
+Epoch 00009: val_loss improved from 0.25850 to 0.25350, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2246 - acc: 0.9500 - val_loss: 0.2535 - val_acc: 0.9363
+Epoch 11/100
+Epoch 00010: val_loss improved from 0.25350 to 0.24810, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2204 - acc: 0.9500 - val_loss: 0.2481 - val_acc: 0.9363
+Epoch 12/100
+Epoch 00011: val_loss improved from 0.24810 to 0.24265, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2159 - acc: 0.9500 - val_loss: 0.2427 - val_acc: 0.9363
+Epoch 13/100
+Epoch 00012: val_loss improved from 0.24265 to 0.23688, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2114 - acc: 0.9500 - val_loss: 0.2369 - val_acc: 0.9363
+Epoch 14/100
+Epoch 00013: val_loss improved from 0.23688 to 0.22976, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2064 - acc: 0.9500 - val_loss: 0.2298 - val_acc: 0.9363
+Epoch 15/100
+Epoch 00014: val_loss improved from 0.22976 to 0.22167, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.2011 - acc: 0.9500 - val_loss: 0.2217 - val_acc: 0.9363
+Epoch 16/100
+Epoch 00015: val_loss improved from 0.22167 to 0.21264, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1952 - acc: 0.9500 - val_loss: 0.2126 - val_acc: 0.9363
+Epoch 17/100
+Epoch 00016: val_loss improved from 0.21264 to 0.20312, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1884 - acc: 0.9500 - val_loss: 0.2031 - val_acc: 0.9363
+Epoch 18/100
+Epoch 00017: val_loss improved from 0.20312 to 0.19198, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1806 - acc: 0.9500 - val_loss: 0.1920 - val_acc: 0.9363
+Epoch 19/100
+Epoch 00018: val_loss improved from 0.19198 to 0.17892, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1718 - acc: 0.9500 - val_loss: 0.1789 - val_acc: 0.9363
+Epoch 20/100
+Epoch 00019: val_loss improved from 0.17892 to 0.16715, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1626 - acc: 0.9500 - val_loss: 0.1672 - val_acc: 0.9363
+Epoch 21/100
+Epoch 00020: val_loss improved from 0.16715 to 0.15807, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1549 - acc: 0.9500 - val_loss: 0.1581 - val_acc: 0.9363
+Epoch 22/100
+Epoch 00021: val_loss improved from 0.15807 to 0.15140, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1493 - acc: 0.9500 - val_loss: 0.1514 - val_acc: 0.9363
+Epoch 23/100
+Epoch 00022: val_loss improved from 0.15140 to 0.14708, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1457 - acc: 0.9500 - val_loss: 0.1471 - val_acc: 0.9363
+Epoch 24/100
+Epoch 00023: val_loss improved from 0.14708 to 0.14397, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1432 - acc: 0.9500 - val_loss: 0.1440 - val_acc: 0.9363
+Epoch 25/100
+Epoch 00024: val_loss improved from 0.14397 to 0.14171, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1412 - acc: 0.9500 - val_loss: 0.1417 - val_acc: 0.9363
+Epoch 26/100
+Epoch 00025: val_loss improved from 0.14171 to 0.14033, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1397 - acc: 0.9500 - val_loss: 0.1403 - val_acc: 0.9363
+Epoch 27/100
+Epoch 00026: val_loss improved from 0.14033 to 0.13762, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1386 - acc: 0.9500 - val_loss: 0.1376 - val_acc: 0.9363
+Epoch 28/100
+Epoch 00027: val_loss improved from 0.13762 to 0.13606, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1372 - acc: 0.9500 - val_loss: 0.1361 - val_acc: 0.9363
+Epoch 29/100
+Epoch 00028: val_loss improved from 0.13606 to 0.13469, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1362 - acc: 0.9500 - val_loss: 0.1347 - val_acc: 0.9363
+Epoch 30/100
+Epoch 00029: val_loss improved from 0.13469 to 0.13402, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1352 - acc: 0.9500 - val_loss: 0.1340 - val_acc: 0.9363
+Epoch 31/100
+Epoch 00030: val_loss improved from 0.13402 to 0.13269, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1343 - acc: 0.9500 - val_loss: 0.1327 - val_acc: 0.9363
+Epoch 32/100
+Epoch 00031: val_loss improved from 0.13269 to 0.13217, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1334 - acc: 0.9500 - val_loss: 0.1322 - val_acc: 0.9363
+Epoch 33/100
+Epoch 00032: val_loss improved from 0.13217 to 0.13105, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1330 - acc: 0.9500 - val_loss: 0.1311 - val_acc: 0.9363
+Epoch 34/100
+Epoch 00033: val_loss improved from 0.13105 to 0.13089, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1321 - acc: 0.9500 - val_loss: 0.1309 - val_acc: 0.9363
+Epoch 35/100
+Epoch 00034: val_loss did not improve
+16s - loss: 0.1315 - acc: 0.9500 - val_loss: 0.1324 - val_acc: 0.9363
+Epoch 36/100
+Epoch 00035: val_loss did not improve
+16s - loss: 0.1308 - acc: 0.9500 - val_loss: 0.1309 - val_acc: 0.9363
+Epoch 37/100
+Epoch 00036: val_loss improved from 0.13089 to 0.12865, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1305 - acc: 0.9500 - val_loss: 0.1287 - val_acc: 0.9363
+Epoch 38/100
+Epoch 00037: val_loss improved from 0.12865 to 0.12859, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1300 - acc: 0.9500 - val_loss: 0.1286 - val_acc: 0.9363
+Epoch 39/100
+Epoch 00038: val_loss did not improve
+16s - loss: 0.1293 - acc: 0.9500 - val_loss: 0.1304 - val_acc: 0.9363
+Epoch 40/100
+Epoch 00039: val_loss improved from 0.12859 to 0.12747, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1292 - acc: 0.9500 - val_loss: 0.1275 - val_acc: 0.9363
+Epoch 41/100
+Epoch 00040: val_loss improved from 0.12747 to 0.12683, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1289 - acc: 0.9500 - val_loss: 0.1268 - val_acc: 0.9363
+Epoch 42/100
+Epoch 00041: val_loss did not improve
+16s - loss: 0.1284 - acc: 0.9500 - val_loss: 0.1272 - val_acc: 0.9363
+Epoch 43/100
+Epoch 00042: val_loss did not improve
+16s - loss: 0.1280 - acc: 0.9500 - val_loss: 0.1272 - val_acc: 0.9363
+Epoch 44/100
+Epoch 00043: val_loss did not improve
+16s - loss: 0.1277 - acc: 0.9500 - val_loss: 0.1275 - val_acc: 0.9363
+Epoch 45/100
+Epoch 00044: val_loss improved from 0.12683 to 0.12550, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1275 - acc: 0.9500 - val_loss: 0.1255 - val_acc: 0.9363
+Epoch 46/100
+Epoch 00045: val_loss did not improve
+16s - loss: 0.1270 - acc: 0.9500 - val_loss: 0.1258 - val_acc: 0.9363
+Epoch 47/100
+Epoch 00046: val_loss improved from 0.12550 to 0.12511, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1269 - acc: 0.9500 - val_loss: 0.1251 - val_acc: 0.9363
+Epoch 48/100
+Epoch 00047: val_loss did not improve
+16s - loss: 0.1267 - acc: 0.9500 - val_loss: 0.1256 - val_acc: 0.9363
+Epoch 49/100
+Epoch 00048: val_loss improved from 0.12511 to 0.12452, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1262 - acc: 0.9500 - val_loss: 0.1245 - val_acc: 0.9363
+Epoch 50/100
+Epoch 00049: val_loss improved from 0.12452 to 0.12423, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1260 - acc: 0.9500 - val_loss: 0.1242 - val_acc: 0.9363
+Epoch 51/100
+Epoch 00050: val_loss improved from 0.12423 to 0.12415, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1258 - acc: 0.9500 - val_loss: 0.1242 - val_acc: 0.9363
+Epoch 52/100
+Epoch 00051: val_loss did not improve
+16s - loss: 0.1255 - acc: 0.9500 - val_loss: 0.1243 - val_acc: 0.9363
+Epoch 53/100
+Epoch 00052: val_loss improved from 0.12415 to 0.12361, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1253 - acc: 0.9500 - val_loss: 0.1236 - val_acc: 0.9363
+Epoch 54/100
+Epoch 00053: val_loss improved from 0.12361 to 0.12343, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1252 - acc: 0.9500 - val_loss: 0.1234 - val_acc: 0.9363
+Epoch 55/100
+Epoch 00054: val_loss improved from 0.12343 to 0.12334, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1249 - acc: 0.9500 - val_loss: 0.1233 - val_acc: 0.9363
+Epoch 56/100
+Epoch 00055: val_loss improved from 0.12334 to 0.12314, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1249 - acc: 0.9500 - val_loss: 0.1231 - val_acc: 0.9363
+Epoch 57/100
+Epoch 00056: val_loss improved from 0.12314 to 0.12294, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1248 - acc: 0.9500 - val_loss: 0.1229 - val_acc: 0.9363
+Epoch 58/100
+Epoch 00057: val_loss improved from 0.12294 to 0.12294, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1245 - acc: 0.9500 - val_loss: 0.1229 - val_acc: 0.9363
+Epoch 59/100
+Epoch 00058: val_loss improved from 0.12294 to 0.12273, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1242 - acc: 0.9500 - val_loss: 0.1227 - val_acc: 0.9363
+Epoch 60/100
+Epoch 00059: val_loss did not improve
+16s - loss: 0.1244 - acc: 0.9500 - val_loss: 0.1227 - val_acc: 0.9363
+Epoch 61/100
+Epoch 00060: val_loss did not improve
+16s - loss: 0.1242 - acc: 0.9500 - val_loss: 0.1232 - val_acc: 0.9363
+Epoch 62/100
+Epoch 00061: val_loss improved from 0.12273 to 0.12227, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1239 - acc: 0.9500 - val_loss: 0.1223 - val_acc: 0.9363
+Epoch 63/100
+Epoch 00062: val_loss did not improve
+16s - loss: 0.1238 - acc: 0.9500 - val_loss: 0.1225 - val_acc: 0.9363
+Epoch 64/100
+Epoch 00063: val_loss did not improve
+16s - loss: 0.1237 - acc: 0.9500 - val_loss: 0.1224 - val_acc: 0.9363
+Epoch 65/100
+Epoch 00064: val_loss improved from 0.12227 to 0.12187, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1235 - acc: 0.9500 - val_loss: 0.1219 - val_acc: 0.9363
+Epoch 66/100
+Epoch 00065: val_loss improved from 0.12187 to 0.12182, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1233 - acc: 0.9500 - val_loss: 0.1218 - val_acc: 0.9363
+Epoch 67/100
+Epoch 00066: val_loss improved from 0.12182 to 0.12166, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1231 - acc: 0.9500 - val_loss: 0.1217 - val_acc: 0.9363
+Epoch 68/100
+Epoch 00067: val_loss improved from 0.12166 to 0.12153, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1229 - acc: 0.9500 - val_loss: 0.1215 - val_acc: 0.9363
+Epoch 69/100
+Epoch 00068: val_loss improved from 0.12153 to 0.12145, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1231 - acc: 0.9500 - val_loss: 0.1214 - val_acc: 0.9363
+Epoch 70/100
+Epoch 00069: val_loss did not improve
+16s - loss: 0.1229 - acc: 0.9500 - val_loss: 0.1220 - val_acc: 0.9363
+Epoch 71/100
+Epoch 00070: val_loss improved from 0.12145 to 0.12136, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1228 - acc: 0.9500 - val_loss: 0.1214 - val_acc: 0.9363
+Epoch 72/100
+Epoch 00071: val_loss improved from 0.12136 to 0.12115, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1225 - acc: 0.9500 - val_loss: 0.1212 - val_acc: 0.9363
+Epoch 73/100
+Epoch 00072: val_loss improved from 0.12115 to 0.12110, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1226 - acc: 0.9500 - val_loss: 0.1211 - val_acc: 0.9363
+Epoch 74/100
+Epoch 00073: val_loss improved from 0.12110 to 0.12098, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1224 - acc: 0.9500 - val_loss: 0.1210 - val_acc: 0.9363
+Epoch 75/100
+Epoch 00074: val_loss improved from 0.12098 to 0.12093, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1224 - acc: 0.9500 - val_loss: 0.1209 - val_acc: 0.9363
+Epoch 76/100
+Epoch 00075: val_loss did not improve
+16s - loss: 0.1223 - acc: 0.9500 - val_loss: 0.1226 - val_acc: 0.9363
+Epoch 77/100
+Epoch 00076: val_loss improved from 0.12093 to 0.12086, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1221 - acc: 0.9500 - val_loss: 0.1209 - val_acc: 0.9363
+Epoch 78/100
+Epoch 00077: val_loss did not improve
+16s - loss: 0.1220 - acc: 0.9500 - val_loss: 0.1210 - val_acc: 0.9363
+Epoch 79/100
+Epoch 00078: val_loss improved from 0.12086 to 0.12086, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1219 - acc: 0.9500 - val_loss: 0.1209 - val_acc: 0.9363
+Epoch 80/100
+Epoch 00079: val_loss did not improve
+16s - loss: 0.1219 - acc: 0.9500 - val_loss: 0.1215 - val_acc: 0.9363
+Epoch 81/100
+Epoch 00080: val_loss improved from 0.12086 to 0.12080, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1218 - acc: 0.9500 - val_loss: 0.1208 - val_acc: 0.9363
+Epoch 82/100
+Epoch 00081: val_loss did not improve
+16s - loss: 0.1217 - acc: 0.9500 - val_loss: 0.1213 - val_acc: 0.9363
+Epoch 83/100
+Epoch 00082: val_loss did not improve
+16s - loss: 0.1216 - acc: 0.9500 - val_loss: 0.1215 - val_acc: 0.9363
+Epoch 84/100
+Epoch 00083: val_loss improved from 0.12080 to 0.12046, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1218 - acc: 0.9500 - val_loss: 0.1205 - val_acc: 0.9363
+Epoch 85/100
+Epoch 00084: val_loss improved from 0.12046 to 0.12042, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1214 - acc: 0.9500 - val_loss: 0.1204 - val_acc: 0.9363
+Epoch 86/100
+Epoch 00085: val_loss improved from 0.12042 to 0.12014, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1215 - acc: 0.9500 - val_loss: 0.1201 - val_acc: 0.9363
+Epoch 87/100
+Epoch 00086: val_loss did not improve
+16s - loss: 0.1211 - acc: 0.9500 - val_loss: 0.1202 - val_acc: 0.9363
+Epoch 88/100
+Epoch 00087: val_loss did not improve
+16s - loss: 0.1213 - acc: 0.9500 - val_loss: 0.1202 - val_acc: 0.9363
+Epoch 89/100
+Epoch 00088: val_loss improved from 0.12014 to 0.12002, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1212 - acc: 0.9500 - val_loss: 0.1200 - val_acc: 0.9363
+Epoch 90/100
+Epoch 00089: val_loss improved from 0.12002 to 0.11992, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1212 - acc: 0.9500 - val_loss: 0.1199 - val_acc: 0.9363
+Epoch 91/100
+Epoch 00090: val_loss did not improve
+16s - loss: 0.1211 - acc: 0.9500 - val_loss: 0.1202 - val_acc: 0.9363
+Epoch 92/100
+Epoch 00091: val_loss improved from 0.11992 to 0.11981, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1209 - acc: 0.9500 - val_loss: 0.1198 - val_acc: 0.9363
+Epoch 93/100
+Epoch 00092: val_loss did not improve
+16s - loss: 0.1209 - acc: 0.9500 - val_loss: 0.1206 - val_acc: 0.9363
+Epoch 94/100
+Epoch 00093: val_loss improved from 0.11981 to 0.11971, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1209 - acc: 0.9500 - val_loss: 0.1197 - val_acc: 0.9363
+Epoch 95/100
+Epoch 00094: val_loss improved from 0.11971 to 0.11970, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1207 - acc: 0.9500 - val_loss: 0.1197 - val_acc: 0.9363
+Epoch 96/100
+Epoch 00095: val_loss improved from 0.11970 to 0.11961, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1206 - acc: 0.9500 - val_loss: 0.1196 - val_acc: 0.9363
+Epoch 97/100
+Epoch 00096: val_loss did not improve
+16s - loss: 0.1206 - acc: 0.9500 - val_loss: 0.1196 - val_acc: 0.9363
+Epoch 98/100
+Epoch 00097: val_loss did not improve
+16s - loss: 0.1206 - acc: 0.9500 - val_loss: 0.1201 - val_acc: 0.9363
+Epoch 99/100
+Epoch 00098: val_loss did not improve
+16s - loss: 0.1204 - acc: 0.9500 - val_loss: 0.1201 - val_acc: 0.9363
+Epoch 100/100
+Epoch 00099: val_loss improved from 0.11961 to 0.11948, saving model to Experiments/root_64_rgb_crop256_flrt/root_64_rgb_crop256_flrt_best_weights.h5
+16s - loss: 0.1205 - acc: 0.9500 - val_loss: 0.1195 - val_acc: 0.9363

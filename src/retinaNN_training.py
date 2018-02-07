@@ -32,6 +32,21 @@ from help_functions import *
 #function to obtain data for training/testing (validation)
 from extract_patches import get_data_training
 
+
+#========= Load settings from Config file
+config = ConfigParser.RawConfigParser()
+config.read('configuration.txt')
+#patch to the datasets
+path_data = config.get('data paths', 'path_local')
+#Experiment name
+name_experiment = config.get('experiment name', 'name')
+result_dir = "Experiments/" + name_experiment
+#training settings
+N_epochs = int(config.get('training settings', 'N_epochs'))
+batch_size = int(config.get('training settings', 'batch_size'))
+learning_rate_ini = float(config.get('training settings', 'learning_rate_ini'))
+
+
 #========= Tai's custom loss-function
 def weighted_categorical_crossentropy(weights):
     """
@@ -128,7 +143,7 @@ def get_unet(n_ch,patch_height,patch_width):
 
     model = Model(input=inputs, output=conv7)
 
-    sgd = SGD(lr=0.01, decay=1e-6, momentum=0.3, nesterov=False)
+    sgd = SGD(lr=learning_rate_ini, decay=1e-6, momentum=0.3, nesterov=False)
     model.compile(optimizer='sgd', loss='categorical_crossentropy',metrics=['accuracy'])
     
 #     model.compile(optimizer='sgd', loss=tai_loss(0.75),metrics=['accuracy'])
@@ -206,17 +221,7 @@ def get_unet(n_ch,patch_height,patch_width):
     
 #     return model
 
-#========= Load settings from Config file
-config = ConfigParser.RawConfigParser()
-config.read('configuration.txt')
-#patch to the datasets
-path_data = config.get('data paths', 'path_local')
-#Experiment name
-name_experiment = config.get('experiment name', 'name')
-result_dir = "Experiments/" + name_experiment
-#training settings
-N_epochs = int(config.get('training settings', 'N_epochs'))
-batch_size = int(config.get('training settings', 'batch_size'))
+
 
 #============ Load the data and divided in patches
 patches_imgs_train, patches_masks_train = get_data_training(

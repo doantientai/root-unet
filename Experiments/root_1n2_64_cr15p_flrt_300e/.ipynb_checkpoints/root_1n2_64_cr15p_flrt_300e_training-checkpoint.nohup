@@ -1,0 +1,658 @@
+Using Theano backend.
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: GeForce GTX 1080 (CNMeM is disabled, cuDNN 5110)
+
+train images/masks shape:
+(32, 3, 1860, 1328)
+train images range (min-max): 0.0078431372549 - 1.0
+train masks are within 0-1
+
+Patches per full image: 75
+Which should be around 603
+Processing image #0
+-->0 patches generated.
+Processing image #1
+patch_mask average: 0.948714192708
+patch_mask average: 0.934485102635
+-->16 patches generated.
+Processing image #2
+-->16 patches generated.
+Processing image #3
+-->16 patches generated.
+Processing image #4
+-->16 patches generated.
+Processing image #5
+-->16 patches generated.
+Processing image #6
+-->16 patches generated.
+Processing image #7
+-->16 patches generated.
+Processing image #8
+-->16 patches generated.
+Processing image #9
+-->16 patches generated.
+Processing image #10
+-->16 patches generated.
+Processing image #11
+-->16 patches generated.
+Processing image #12
+-->16 patches generated.
+Processing image #13
+patch_mask average: 0.915131931679
+patch_mask average: 0.925495940564
+patch_mask average: 0.941170726103
+patch_mask average: 0.922589231005
+patch_mask average: 0.938189338235
+patch_mask average: 0.936342486213
+patch_mask average: 0.941789215686
+patch_mask average: 0.935080614277
+-->80 patches generated.
+Processing image #14
+patch_mask average: 0.946902765012
+patch_mask average: 0.923586856618
+patch_mask average: 0.920413028493
+patch_mask average: 0.94907801011
+patch_mask average: 0.887574678309
+patch_mask average: 0.9072198606
+-->128 patches generated.
+Processing image #15
+-->128 patches generated.
+Processing image #16
+-->128 patches generated.
+Processing image #17
+-->128 patches generated.
+Processing image #18
+patch_mask average: 0.947461894914
+patch_mask average: 0.925672104779
+patch_mask average: 0.947658164828
+patch_mask average: 0.942506318934
+patch_mask average: 0.926804725797
+patch_mask average: 0.92314453125
+patch_mask average: 0.918306717218
+-->184 patches generated.
+Processing image #19
+-->184 patches generated.
+Processing image #20
+patch_mask average: 0.928743489583
+patch_mask average: 0.931121706495
+patch_mask average: 0.895724188113
+patch_mask average: 0.938827933517
+patch_mask average: 0.932854626225
+patch_mask average: 0.945632276348
+patch_mask average: 0.910868566176
+patch_mask average: 0.929746859681
+-->248 patches generated.
+Processing image #21
+patch_mask average: 0.879033586091
+patch_mask average: 0.925320733762
+patch_mask average: 0.945929074755
+patch_mask average: 0.925502642463
+patch_mask average: 0.926124004289
+patch_mask average: 0.936848958333
+patch_mask average: 0.946226830576
+patch_mask average: 0.937015548407
+patch_mask average: 0.905430453431
+-->320 patches generated.
+Processing image #22
+-->320 patches generated.
+Processing image #23
+patch_mask average: 0.944793581495
+patch_mask average: 0.935334329044
+patch_mask average: 0.925970818015
+patch_mask average: 0.93045055913
+-->352 patches generated.
+Processing image #24
+-->352 patches generated.
+Processing image #25
+-->352 patches generated.
+Processing image #26
+-->352 patches generated.
+Processing image #27
+patch_mask average: 0.898157935049
+-->360 patches generated.
+Processing image #28
+-->360 patches generated.
+Processing image #29
+patch_mask average: 0.917416321998
+patch_mask average: 0.919847196691
+patch_mask average: 0.905539598652
+patch_mask average: 0.88226964614
+-->392 patches generated.
+Processing image #30
+patch_mask average: 0.935926011029
+patch_mask average: 0.94914598652
+patch_mask average: 0.937178308824
+patch_mask average: 0.931070006127
+patch_mask average: 0.886636412377
+patch_mask average: 0.949600758272
+-->440 patches generated.
+Processing image #31
+patch_mask average: 0.945193780637
+-->448 patches generated.
+
+train PATCHES images/masks shape:
+(448, 3, 64, 64)
+train PATCHES images range (min-max): 0.0078431372549 - 1.0
+./src/retinaNN_training.py:129: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Elemwise{t..., inputs=/input_1)`
+  model = Model(input=inputs, output=conv7)
+Check: final output of the network:
+(None, 4096, 2)
+./src/retinaNN_training.py:265: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.
+  model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+Train on 403 samples, validate on 45 samples
+Epoch 1/300
+Epoch 00000: val_loss improved from inf to 0.62210, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.6533 - acc: 0.9803 - val_loss: 0.6221 - val_acc: 0.9867
+Epoch 2/300
+Epoch 00001: val_loss improved from 0.62210 to 0.54533, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.5905 - acc: 0.9852 - val_loss: 0.5453 - val_acc: 0.9867
+Epoch 3/300
+Epoch 00002: val_loss improved from 0.54533 to 0.42167, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.4980 - acc: 0.9852 - val_loss: 0.4217 - val_acc: 0.9867
+Epoch 4/300
+Epoch 00003: val_loss improved from 0.42167 to 0.22559, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.3389 - acc: 0.9852 - val_loss: 0.2256 - val_acc: 0.9867
+Epoch 5/300
+Epoch 00004: val_loss improved from 0.22559 to 0.11310, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.1567 - acc: 0.9852 - val_loss: 0.1131 - val_acc: 0.9867
+Epoch 6/300
+Epoch 00005: val_loss improved from 0.11310 to 0.09254, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.1008 - acc: 0.9852 - val_loss: 0.0925 - val_acc: 0.9867
+Epoch 7/300
+Epoch 00006: val_loss improved from 0.09254 to 0.08836, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0939 - acc: 0.9852 - val_loss: 0.0884 - val_acc: 0.9867
+Epoch 8/300
+Epoch 00007: val_loss improved from 0.08836 to 0.08672, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0928 - acc: 0.9852 - val_loss: 0.0867 - val_acc: 0.9867
+Epoch 9/300
+Epoch 00008: val_loss improved from 0.08672 to 0.08642, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0926 - acc: 0.9852 - val_loss: 0.0864 - val_acc: 0.9867
+Epoch 10/300
+Epoch 00009: val_loss improved from 0.08642 to 0.08599, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0924 - acc: 0.9852 - val_loss: 0.0860 - val_acc: 0.9867
+Epoch 11/300
+Epoch 00010: val_loss improved from 0.08599 to 0.08592, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0923 - acc: 0.9852 - val_loss: 0.0859 - val_acc: 0.9867
+Epoch 12/300
+Epoch 00011: val_loss improved from 0.08592 to 0.08570, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0922 - acc: 0.9852 - val_loss: 0.0857 - val_acc: 0.9867
+Epoch 13/300
+Epoch 00012: val_loss improved from 0.08570 to 0.08557, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0921 - acc: 0.9852 - val_loss: 0.0856 - val_acc: 0.9867
+Epoch 14/300
+Epoch 00013: val_loss improved from 0.08557 to 0.08538, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0919 - acc: 0.9852 - val_loss: 0.0854 - val_acc: 0.9867
+Epoch 15/300
+Epoch 00014: val_loss improved from 0.08538 to 0.08520, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0919 - acc: 0.9852 - val_loss: 0.0852 - val_acc: 0.9867
+Epoch 16/300
+Epoch 00015: val_loss improved from 0.08520 to 0.08515, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0919 - acc: 0.9852 - val_loss: 0.0851 - val_acc: 0.9867
+Epoch 17/300
+Epoch 00016: val_loss did not improve
+4s - loss: 0.0916 - acc: 0.9852 - val_loss: 0.0852 - val_acc: 0.9867
+Epoch 18/300
+Epoch 00017: val_loss improved from 0.08515 to 0.08505, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0915 - acc: 0.9852 - val_loss: 0.0850 - val_acc: 0.9867
+Epoch 19/300
+Epoch 00018: val_loss improved from 0.08505 to 0.08496, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0914 - acc: 0.9852 - val_loss: 0.0850 - val_acc: 0.9867
+Epoch 20/300
+Epoch 00019: val_loss improved from 0.08496 to 0.08493, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0914 - acc: 0.9852 - val_loss: 0.0849 - val_acc: 0.9867
+Epoch 21/300
+Epoch 00020: val_loss improved from 0.08493 to 0.08479, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0912 - acc: 0.9852 - val_loss: 0.0848 - val_acc: 0.9867
+Epoch 22/300
+Epoch 00021: val_loss improved from 0.08479 to 0.08479, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0912 - acc: 0.9852 - val_loss: 0.0848 - val_acc: 0.9867
+Epoch 23/300
+Epoch 00022: val_loss improved from 0.08479 to 0.08475, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0911 - acc: 0.9852 - val_loss: 0.0847 - val_acc: 0.9867
+Epoch 24/300
+Epoch 00023: val_loss improved from 0.08475 to 0.08454, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0909 - acc: 0.9852 - val_loss: 0.0845 - val_acc: 0.9867
+Epoch 25/300
+Epoch 00024: val_loss did not improve
+4s - loss: 0.0909 - acc: 0.9852 - val_loss: 0.0847 - val_acc: 0.9867
+Epoch 26/300
+Epoch 00025: val_loss improved from 0.08454 to 0.08445, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0908 - acc: 0.9852 - val_loss: 0.0845 - val_acc: 0.9867
+Epoch 27/300
+Epoch 00026: val_loss improved from 0.08445 to 0.08431, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0906 - acc: 0.9852 - val_loss: 0.0843 - val_acc: 0.9867
+Epoch 28/300
+Epoch 00027: val_loss improved from 0.08431 to 0.08419, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0907 - acc: 0.9852 - val_loss: 0.0842 - val_acc: 0.9867
+Epoch 29/300
+Epoch 00028: val_loss improved from 0.08419 to 0.08406, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0905 - acc: 0.9852 - val_loss: 0.0841 - val_acc: 0.9867
+Epoch 30/300
+Epoch 00029: val_loss did not improve
+4s - loss: 0.0905 - acc: 0.9852 - val_loss: 0.0841 - val_acc: 0.9867
+Epoch 31/300
+Epoch 00030: val_loss improved from 0.08406 to 0.08397, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0903 - acc: 0.9852 - val_loss: 0.0840 - val_acc: 0.9867
+Epoch 32/300
+Epoch 00031: val_loss improved from 0.08397 to 0.08387, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0902 - acc: 0.9852 - val_loss: 0.0839 - val_acc: 0.9867
+Epoch 33/300
+Epoch 00032: val_loss did not improve
+4s - loss: 0.0901 - acc: 0.9852 - val_loss: 0.0840 - val_acc: 0.9867
+Epoch 34/300
+Epoch 00033: val_loss improved from 0.08387 to 0.08374, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0901 - acc: 0.9852 - val_loss: 0.0837 - val_acc: 0.9867
+Epoch 35/300
+Epoch 00034: val_loss did not improve
+4s - loss: 0.0900 - acc: 0.9852 - val_loss: 0.0838 - val_acc: 0.9867
+Epoch 36/300
+Epoch 00035: val_loss improved from 0.08374 to 0.08373, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0900 - acc: 0.9852 - val_loss: 0.0837 - val_acc: 0.9867
+Epoch 37/300
+Epoch 00036: val_loss improved from 0.08373 to 0.08361, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0898 - acc: 0.9852 - val_loss: 0.0836 - val_acc: 0.9867
+Epoch 38/300
+Epoch 00037: val_loss did not improve
+4s - loss: 0.0897 - acc: 0.9852 - val_loss: 0.0836 - val_acc: 0.9867
+Epoch 39/300
+Epoch 00038: val_loss did not improve
+4s - loss: 0.0898 - acc: 0.9852 - val_loss: 0.0837 - val_acc: 0.9867
+Epoch 40/300
+Epoch 00039: val_loss improved from 0.08361 to 0.08340, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0896 - acc: 0.9852 - val_loss: 0.0834 - val_acc: 0.9867
+Epoch 41/300
+Epoch 00040: val_loss did not improve
+4s - loss: 0.0895 - acc: 0.9852 - val_loss: 0.0835 - val_acc: 0.9867
+Epoch 42/300
+Epoch 00041: val_loss improved from 0.08340 to 0.08325, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0893 - acc: 0.9852 - val_loss: 0.0833 - val_acc: 0.9867
+Epoch 43/300
+Epoch 00042: val_loss improved from 0.08325 to 0.08317, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0892 - acc: 0.9852 - val_loss: 0.0832 - val_acc: 0.9867
+Epoch 44/300
+Epoch 00043: val_loss improved from 0.08317 to 0.08290, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0893 - acc: 0.9852 - val_loss: 0.0829 - val_acc: 0.9867
+Epoch 45/300
+Epoch 00044: val_loss improved from 0.08290 to 0.08289, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0891 - acc: 0.9852 - val_loss: 0.0829 - val_acc: 0.9867
+Epoch 46/300
+Epoch 00045: val_loss improved from 0.08289 to 0.08284, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0890 - acc: 0.9852 - val_loss: 0.0828 - val_acc: 0.9867
+Epoch 47/300
+Epoch 00046: val_loss improved from 0.08284 to 0.08279, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0891 - acc: 0.9852 - val_loss: 0.0828 - val_acc: 0.9867
+Epoch 48/300
+Epoch 00047: val_loss did not improve
+4s - loss: 0.0890 - acc: 0.9852 - val_loss: 0.0828 - val_acc: 0.9867
+Epoch 49/300
+Epoch 00048: val_loss improved from 0.08279 to 0.08272, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0890 - acc: 0.9852 - val_loss: 0.0827 - val_acc: 0.9867
+Epoch 50/300
+Epoch 00049: val_loss did not improve
+4s - loss: 0.0889 - acc: 0.9852 - val_loss: 0.0827 - val_acc: 0.9867
+Epoch 51/300
+Epoch 00050: val_loss improved from 0.08272 to 0.08251, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0888 - acc: 0.9852 - val_loss: 0.0825 - val_acc: 0.9867
+Epoch 52/300
+Epoch 00051: val_loss did not improve
+4s - loss: 0.0887 - acc: 0.9852 - val_loss: 0.0825 - val_acc: 0.9867
+Epoch 53/300
+Epoch 00052: val_loss improved from 0.08251 to 0.08240, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0886 - acc: 0.9852 - val_loss: 0.0824 - val_acc: 0.9867
+Epoch 54/300
+Epoch 00053: val_loss did not improve
+4s - loss: 0.0885 - acc: 0.9852 - val_loss: 0.0825 - val_acc: 0.9867
+Epoch 55/300
+Epoch 00054: val_loss improved from 0.08240 to 0.08224, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0885 - acc: 0.9852 - val_loss: 0.0822 - val_acc: 0.9867
+Epoch 56/300
+Epoch 00055: val_loss did not improve
+4s - loss: 0.0884 - acc: 0.9852 - val_loss: 0.0823 - val_acc: 0.9867
+Epoch 57/300
+Epoch 00056: val_loss improved from 0.08224 to 0.08216, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0883 - acc: 0.9852 - val_loss: 0.0822 - val_acc: 0.9867
+Epoch 58/300
+Epoch 00057: val_loss improved from 0.08216 to 0.08210, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0883 - acc: 0.9852 - val_loss: 0.0821 - val_acc: 0.9867
+Epoch 59/300
+Epoch 00058: val_loss improved from 0.08210 to 0.08198, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0882 - acc: 0.9852 - val_loss: 0.0820 - val_acc: 0.9867
+Epoch 60/300
+Epoch 00059: val_loss did not improve
+4s - loss: 0.0881 - acc: 0.9852 - val_loss: 0.0822 - val_acc: 0.9867
+Epoch 61/300
+Epoch 00060: val_loss did not improve
+4s - loss: 0.0880 - acc: 0.9852 - val_loss: 0.0821 - val_acc: 0.9867
+Epoch 62/300
+Epoch 00061: val_loss did not improve
+4s - loss: 0.0880 - acc: 0.9852 - val_loss: 0.0822 - val_acc: 0.9867
+Epoch 63/300
+Epoch 00062: val_loss improved from 0.08198 to 0.08196, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0880 - acc: 0.9852 - val_loss: 0.0820 - val_acc: 0.9867
+Epoch 64/300
+Epoch 00063: val_loss improved from 0.08196 to 0.08179, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0879 - acc: 0.9852 - val_loss: 0.0818 - val_acc: 0.9867
+Epoch 65/300
+Epoch 00064: val_loss improved from 0.08179 to 0.08167, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0878 - acc: 0.9852 - val_loss: 0.0817 - val_acc: 0.9867
+Epoch 66/300
+Epoch 00065: val_loss did not improve
+4s - loss: 0.0878 - acc: 0.9852 - val_loss: 0.0817 - val_acc: 0.9867
+Epoch 67/300
+Epoch 00066: val_loss improved from 0.08167 to 0.08161, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0876 - acc: 0.9852 - val_loss: 0.0816 - val_acc: 0.9867
+Epoch 68/300
+Epoch 00067: val_loss did not improve
+4s - loss: 0.0874 - acc: 0.9852 - val_loss: 0.0817 - val_acc: 0.9867
+Epoch 69/300
+Epoch 00068: val_loss improved from 0.08161 to 0.08156, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0875 - acc: 0.9852 - val_loss: 0.0816 - val_acc: 0.9867
+Epoch 70/300
+Epoch 00069: val_loss improved from 0.08156 to 0.08141, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0875 - acc: 0.9852 - val_loss: 0.0814 - val_acc: 0.9867
+Epoch 71/300
+Epoch 00070: val_loss improved from 0.08141 to 0.08128, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0875 - acc: 0.9852 - val_loss: 0.0813 - val_acc: 0.9867
+Epoch 72/300
+Epoch 00071: val_loss improved from 0.08128 to 0.08122, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0874 - acc: 0.9852 - val_loss: 0.0812 - val_acc: 0.9867
+Epoch 73/300
+Epoch 00072: val_loss improved from 0.08122 to 0.08120, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0874 - acc: 0.9852 - val_loss: 0.0812 - val_acc: 0.9867
+Epoch 74/300
+Epoch 00073: val_loss did not improve
+4s - loss: 0.0872 - acc: 0.9852 - val_loss: 0.0813 - val_acc: 0.9867
+Epoch 75/300
+Epoch 00074: val_loss improved from 0.08120 to 0.08119, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0871 - acc: 0.9852 - val_loss: 0.0812 - val_acc: 0.9867
+Epoch 76/300
+Epoch 00075: val_loss improved from 0.08119 to 0.08110, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0871 - acc: 0.9852 - val_loss: 0.0811 - val_acc: 0.9867
+Epoch 77/300
+Epoch 00076: val_loss improved from 0.08110 to 0.08105, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0871 - acc: 0.9852 - val_loss: 0.0810 - val_acc: 0.9867
+Epoch 78/300
+Epoch 00077: val_loss did not improve
+4s - loss: 0.0870 - acc: 0.9852 - val_loss: 0.0811 - val_acc: 0.9867
+Epoch 79/300
+Epoch 00078: val_loss improved from 0.08105 to 0.08097, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0870 - acc: 0.9852 - val_loss: 0.0810 - val_acc: 0.9867
+Epoch 80/300
+Epoch 00079: val_loss improved from 0.08097 to 0.08075, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0869 - acc: 0.9852 - val_loss: 0.0808 - val_acc: 0.9867
+Epoch 81/300
+Epoch 00080: val_loss did not improve
+4s - loss: 0.0870 - acc: 0.9852 - val_loss: 0.0808 - val_acc: 0.9867
+Epoch 82/300
+Epoch 00081: val_loss improved from 0.08075 to 0.08069, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0867 - acc: 0.9852 - val_loss: 0.0807 - val_acc: 0.9867
+Epoch 83/300
+Epoch 00082: val_loss improved from 0.08069 to 0.08063, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0867 - acc: 0.9852 - val_loss: 0.0806 - val_acc: 0.9867
+Epoch 84/300
+Epoch 00083: val_loss improved from 0.08063 to 0.08058, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0867 - acc: 0.9852 - val_loss: 0.0806 - val_acc: 0.9867
+Epoch 85/300
+Epoch 00084: val_loss did not improve
+4s - loss: 0.0867 - acc: 0.9852 - val_loss: 0.0806 - val_acc: 0.9867
+Epoch 86/300
+Epoch 00085: val_loss improved from 0.08058 to 0.08056, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0866 - acc: 0.9852 - val_loss: 0.0806 - val_acc: 0.9867
+Epoch 87/300
+Epoch 00086: val_loss improved from 0.08056 to 0.08054, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0865 - acc: 0.9852 - val_loss: 0.0805 - val_acc: 0.9867
+Epoch 88/300
+Epoch 00087: val_loss improved from 0.08054 to 0.08050, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0865 - acc: 0.9852 - val_loss: 0.0805 - val_acc: 0.9867
+Epoch 89/300
+Epoch 00088: val_loss did not improve
+4s - loss: 0.0864 - acc: 0.9852 - val_loss: 0.0805 - val_acc: 0.9867
+Epoch 90/300
+Epoch 00089: val_loss improved from 0.08050 to 0.08049, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0863 - acc: 0.9852 - val_loss: 0.0805 - val_acc: 0.9867
+Epoch 91/300
+Epoch 00090: val_loss improved from 0.08049 to 0.08030, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0864 - acc: 0.9852 - val_loss: 0.0803 - val_acc: 0.9867
+Epoch 92/300
+Epoch 00091: val_loss did not improve
+4s - loss: 0.0863 - acc: 0.9852 - val_loss: 0.0803 - val_acc: 0.9867
+Epoch 93/300
+Epoch 00092: val_loss improved from 0.08030 to 0.08013, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0863 - acc: 0.9852 - val_loss: 0.0801 - val_acc: 0.9867
+Epoch 94/300
+Epoch 00093: val_loss did not improve
+4s - loss: 0.0861 - acc: 0.9852 - val_loss: 0.0802 - val_acc: 0.9867
+Epoch 95/300
+Epoch 00094: val_loss did not improve
+4s - loss: 0.0861 - acc: 0.9852 - val_loss: 0.0801 - val_acc: 0.9867
+Epoch 96/300
+Epoch 00095: val_loss did not improve
+4s - loss: 0.0860 - acc: 0.9852 - val_loss: 0.0802 - val_acc: 0.9867
+Epoch 97/300
+Epoch 00096: val_loss improved from 0.08013 to 0.08007, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0860 - acc: 0.9852 - val_loss: 0.0801 - val_acc: 0.9867
+Epoch 98/300
+Epoch 00097: val_loss did not improve
+4s - loss: 0.0860 - acc: 0.9852 - val_loss: 0.0801 - val_acc: 0.9867
+Epoch 99/300
+Epoch 00098: val_loss improved from 0.08007 to 0.08002, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0860 - acc: 0.9852 - val_loss: 0.0800 - val_acc: 0.9867
+Epoch 100/300
+Epoch 00099: val_loss did not improve
+4s - loss: 0.0860 - acc: 0.9852 - val_loss: 0.0801 - val_acc: 0.9867
+Epoch 101/300
+Epoch 00100: val_loss improved from 0.08002 to 0.07995, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0859 - acc: 0.9852 - val_loss: 0.0799 - val_acc: 0.9867
+Epoch 102/300
+Epoch 00101: val_loss improved from 0.07995 to 0.07979, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0859 - acc: 0.9852 - val_loss: 0.0798 - val_acc: 0.9867
+Epoch 103/300
+Epoch 00102: val_loss improved from 0.07979 to 0.07975, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0857 - acc: 0.9852 - val_loss: 0.0797 - val_acc: 0.9867
+Epoch 104/300
+Epoch 00103: val_loss did not improve
+4s - loss: 0.0857 - acc: 0.9852 - val_loss: 0.0798 - val_acc: 0.9867
+Epoch 105/300
+Epoch 00104: val_loss improved from 0.07975 to 0.07968, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0856 - acc: 0.9852 - val_loss: 0.0797 - val_acc: 0.9867
+Epoch 106/300
+Epoch 00105: val_loss improved from 0.07968 to 0.07962, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0856 - acc: 0.9852 - val_loss: 0.0796 - val_acc: 0.9867
+Epoch 107/300
+Epoch 00106: val_loss improved from 0.07962 to 0.07956, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0856 - acc: 0.9852 - val_loss: 0.0796 - val_acc: 0.9867
+Epoch 108/300
+Epoch 00107: val_loss did not improve
+4s - loss: 0.0855 - acc: 0.9852 - val_loss: 0.0796 - val_acc: 0.9867
+Epoch 109/300
+Epoch 00108: val_loss did not improve
+4s - loss: 0.0854 - acc: 0.9852 - val_loss: 0.0796 - val_acc: 0.9867
+Epoch 110/300
+Epoch 00109: val_loss improved from 0.07956 to 0.07952, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0855 - acc: 0.9852 - val_loss: 0.0795 - val_acc: 0.9867
+Epoch 111/300
+Epoch 00110: val_loss improved from 0.07952 to 0.07942, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0854 - acc: 0.9852 - val_loss: 0.0794 - val_acc: 0.9867
+Epoch 112/300
+Epoch 00111: val_loss improved from 0.07942 to 0.07924, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0852 - acc: 0.9852 - val_loss: 0.0792 - val_acc: 0.9867
+Epoch 113/300
+Epoch 00112: val_loss did not improve
+4s - loss: 0.0853 - acc: 0.9852 - val_loss: 0.0793 - val_acc: 0.9867
+Epoch 114/300
+Epoch 00113: val_loss did not improve
+4s - loss: 0.0853 - acc: 0.9852 - val_loss: 0.0793 - val_acc: 0.9867
+Epoch 115/300
+Epoch 00114: val_loss did not improve
+4s - loss: 0.0852 - acc: 0.9852 - val_loss: 0.0793 - val_acc: 0.9867
+Epoch 116/300
+Epoch 00115: val_loss did not improve
+4s - loss: 0.0851 - acc: 0.9852 - val_loss: 0.0793 - val_acc: 0.9867
+Epoch 117/300
+Epoch 00116: val_loss improved from 0.07924 to 0.07923, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0851 - acc: 0.9852 - val_loss: 0.0792 - val_acc: 0.9867
+Epoch 118/300
+Epoch 00117: val_loss improved from 0.07923 to 0.07911, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0850 - acc: 0.9852 - val_loss: 0.0791 - val_acc: 0.9867
+Epoch 119/300
+Epoch 00118: val_loss did not improve
+4s - loss: 0.0850 - acc: 0.9852 - val_loss: 0.0792 - val_acc: 0.9867
+Epoch 120/300
+Epoch 00119: val_loss improved from 0.07911 to 0.07898, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0850 - acc: 0.9852 - val_loss: 0.0790 - val_acc: 0.9867
+Epoch 121/300
+Epoch 00120: val_loss improved from 0.07898 to 0.07890, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0849 - acc: 0.9852 - val_loss: 0.0789 - val_acc: 0.9867
+Epoch 122/300
+Epoch 00121: val_loss did not improve
+4s - loss: 0.0849 - acc: 0.9852 - val_loss: 0.0789 - val_acc: 0.9867
+Epoch 123/300
+Epoch 00122: val_loss did not improve
+4s - loss: 0.0848 - acc: 0.9852 - val_loss: 0.0790 - val_acc: 0.9867
+Epoch 124/300
+Epoch 00123: val_loss did not improve
+4s - loss: 0.0848 - acc: 0.9852 - val_loss: 0.0789 - val_acc: 0.9867
+Epoch 125/300
+Epoch 00124: val_loss did not improve
+4s - loss: 0.0847 - acc: 0.9852 - val_loss: 0.0789 - val_acc: 0.9867
+Epoch 126/300
+Epoch 00125: val_loss improved from 0.07890 to 0.07882, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0848 - acc: 0.9852 - val_loss: 0.0788 - val_acc: 0.9867
+Epoch 127/300
+Epoch 00126: val_loss improved from 0.07882 to 0.07881, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0847 - acc: 0.9852 - val_loss: 0.0788 - val_acc: 0.9867
+Epoch 128/300
+Epoch 00127: val_loss improved from 0.07881 to 0.07879, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0847 - acc: 0.9852 - val_loss: 0.0788 - val_acc: 0.9867
+Epoch 129/300
+Epoch 00128: val_loss improved from 0.07879 to 0.07869, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0846 - acc: 0.9852 - val_loss: 0.0787 - val_acc: 0.9867
+Epoch 130/300
+Epoch 00129: val_loss improved from 0.07869 to 0.07868, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0846 - acc: 0.9852 - val_loss: 0.0787 - val_acc: 0.9867
+Epoch 131/300
+Epoch 00130: val_loss improved from 0.07868 to 0.07865, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0845 - acc: 0.9852 - val_loss: 0.0787 - val_acc: 0.9867
+Epoch 132/300
+Epoch 00131: val_loss improved from 0.07865 to 0.07857, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0845 - acc: 0.9852 - val_loss: 0.0786 - val_acc: 0.9867
+Epoch 133/300
+Epoch 00132: val_loss improved from 0.07857 to 0.07854, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0845 - acc: 0.9852 - val_loss: 0.0785 - val_acc: 0.9867
+Epoch 134/300
+Epoch 00133: val_loss improved from 0.07854 to 0.07848, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0844 - acc: 0.9852 - val_loss: 0.0785 - val_acc: 0.9867
+Epoch 135/300
+Epoch 00134: val_loss improved from 0.07848 to 0.07845, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0843 - acc: 0.9852 - val_loss: 0.0785 - val_acc: 0.9867
+Epoch 136/300
+Epoch 00135: val_loss improved from 0.07845 to 0.07839, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0844 - acc: 0.9852 - val_loss: 0.0784 - val_acc: 0.9867
+Epoch 137/300
+Epoch 00136: val_loss did not improve
+4s - loss: 0.0843 - acc: 0.9852 - val_loss: 0.0784 - val_acc: 0.9867
+Epoch 138/300
+Epoch 00137: val_loss improved from 0.07839 to 0.07831, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0842 - acc: 0.9852 - val_loss: 0.0783 - val_acc: 0.9867
+Epoch 139/300
+Epoch 00138: val_loss improved from 0.07831 to 0.07830, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0842 - acc: 0.9852 - val_loss: 0.0783 - val_acc: 0.9867
+Epoch 140/300
+Epoch 00139: val_loss improved from 0.07830 to 0.07829, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0841 - acc: 0.9852 - val_loss: 0.0783 - val_acc: 0.9867
+Epoch 141/300
+Epoch 00140: val_loss improved from 0.07829 to 0.07825, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0841 - acc: 0.9852 - val_loss: 0.0783 - val_acc: 0.9867
+Epoch 142/300
+Epoch 00141: val_loss improved from 0.07825 to 0.07816, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0841 - acc: 0.9852 - val_loss: 0.0782 - val_acc: 0.9867
+Epoch 143/300
+Epoch 00142: val_loss improved from 0.07816 to 0.07812, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0840 - acc: 0.9852 - val_loss: 0.0781 - val_acc: 0.9867
+Epoch 144/300
+Epoch 00143: val_loss improved from 0.07812 to 0.07810, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0841 - acc: 0.9852 - val_loss: 0.0781 - val_acc: 0.9867
+Epoch 145/300
+Epoch 00144: val_loss improved from 0.07810 to 0.07802, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0840 - acc: 0.9852 - val_loss: 0.0780 - val_acc: 0.9867
+Epoch 146/300
+Epoch 00145: val_loss improved from 0.07802 to 0.07797, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0839 - acc: 0.9852 - val_loss: 0.0780 - val_acc: 0.9867
+Epoch 147/300
+Epoch 00146: val_loss improved from 0.07797 to 0.07790, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0839 - acc: 0.9852 - val_loss: 0.0779 - val_acc: 0.9867
+Epoch 148/300
+Epoch 00147: val_loss did not improve
+4s - loss: 0.0839 - acc: 0.9852 - val_loss: 0.0780 - val_acc: 0.9867
+Epoch 149/300
+Epoch 00148: val_loss did not improve
+4s - loss: 0.0838 - acc: 0.9852 - val_loss: 0.0779 - val_acc: 0.9867
+Epoch 150/300
+Epoch 00149: val_loss did not improve
+4s - loss: 0.0838 - acc: 0.9852 - val_loss: 0.0779 - val_acc: 0.9867
+Epoch 151/300
+Epoch 00150: val_loss improved from 0.07790 to 0.07786, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0838 - acc: 0.9852 - val_loss: 0.0779 - val_acc: 0.9867
+Epoch 152/300
+Epoch 00151: val_loss did not improve
+4s - loss: 0.0838 - acc: 0.9852 - val_loss: 0.0779 - val_acc: 0.9867
+Epoch 153/300
+Epoch 00152: val_loss improved from 0.07786 to 0.07782, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0837 - acc: 0.9852 - val_loss: 0.0778 - val_acc: 0.9867
+Epoch 154/300
+Epoch 00153: val_loss improved from 0.07782 to 0.07779, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0837 - acc: 0.9852 - val_loss: 0.0778 - val_acc: 0.9867
+Epoch 155/300
+Epoch 00154: val_loss improved from 0.07779 to 0.07772, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0837 - acc: 0.9852 - val_loss: 0.0777 - val_acc: 0.9867
+Epoch 156/300
+Epoch 00155: val_loss did not improve
+4s - loss: 0.0837 - acc: 0.9852 - val_loss: 0.0778 - val_acc: 0.9867
+Epoch 157/300
+Epoch 00156: val_loss improved from 0.07772 to 0.07768, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0836 - acc: 0.9852 - val_loss: 0.0777 - val_acc: 0.9867
+Epoch 158/300
+Epoch 00157: val_loss did not improve
+4s - loss: 0.0836 - acc: 0.9852 - val_loss: 0.0777 - val_acc: 0.9867
+Epoch 159/300
+Epoch 00158: val_loss did not improve
+4s - loss: 0.0834 - acc: 0.9852 - val_loss: 0.0778 - val_acc: 0.9867
+Epoch 160/300
+Epoch 00159: val_loss did not improve
+4s - loss: 0.0835 - acc: 0.9852 - val_loss: 0.0777 - val_acc: 0.9867
+Epoch 161/300
+Epoch 00160: val_loss improved from 0.07768 to 0.07765, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0835 - acc: 0.9852 - val_loss: 0.0776 - val_acc: 0.9867
+Epoch 162/300
+Epoch 00161: val_loss improved from 0.07765 to 0.07755, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0834 - acc: 0.9852 - val_loss: 0.0776 - val_acc: 0.9867
+Epoch 163/300
+Epoch 00162: val_loss improved from 0.07755 to 0.07751, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0834 - acc: 0.9852 - val_loss: 0.0775 - val_acc: 0.9867
+Epoch 164/300
+Epoch 00163: val_loss did not improve
+4s - loss: 0.0833 - acc: 0.9852 - val_loss: 0.0775 - val_acc: 0.9867
+Epoch 165/300
+Epoch 00164: val_loss improved from 0.07751 to 0.07750, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0833 - acc: 0.9852 - val_loss: 0.0775 - val_acc: 0.9867
+Epoch 166/300
+Epoch 00165: val_loss improved from 0.07750 to 0.07742, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0833 - acc: 0.9852 - val_loss: 0.0774 - val_acc: 0.9867
+Epoch 167/300
+Epoch 00166: val_loss improved from 0.07742 to 0.07730, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0833 - acc: 0.9852 - val_loss: 0.0773 - val_acc: 0.9867
+Epoch 168/300
+Epoch 00167: val_loss did not improve
+4s - loss: 0.0832 - acc: 0.9852 - val_loss: 0.0773 - val_acc: 0.9867
+Epoch 169/300
+Epoch 00168: val_loss improved from 0.07730 to 0.07726, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0831 - acc: 0.9852 - val_loss: 0.0773 - val_acc: 0.9867
+Epoch 170/300
+Epoch 00169: val_loss improved from 0.07726 to 0.07719, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0831 - acc: 0.9852 - val_loss: 0.0772 - val_acc: 0.9867
+Epoch 171/300
+Epoch 00170: val_loss improved from 0.07719 to 0.07718, saving model to Experiments/root_1n2_64_cr15p_flrt_300e/root_1n2_64_cr15p_flrt_300e_best_weights.h5
+4s - loss: 0.0831 - acc: 0.9852 - val_loss: 0.0772 - val_acc: 0.9867
+Epoch 172/300
