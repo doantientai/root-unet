@@ -1,8 +1,10 @@
 # input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb/TestResults/root_64_rgb_1_predict.png'
 
-input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb_crop256_flrt/TestResults/root_64_rgb_crop256_flrt_0_predict.png'
+#input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb_crop256_flrt/TestResults/root_64_rgb_crop256_flrt_0_predict.png'
 
-gt_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_64_rgb_crop256_flrt/TestResults/root_64_rgb_crop256_flrt_0_gtruth.png'
+input_path = '/home/doantientai/Projects/DeepRoot/root-unet/Experiments/root_db1_bin_pat32_cr15p_flrt_500e/TestResults/root_db1_bin_pat32_cr15p_flrt_500e_0_origin.png'
+
+gt_path = input_path.replace("_predict", "_gtruth")
 
 from PIL import Image
 from matplotlib.pyplot import imshow, imsave
